@@ -18,6 +18,7 @@ distro-info===0.21ubuntu2
 dj-database-url==0.5.0
 Django==2.2.4
 django-contact-form==1.7
+django-cors-headers==3.1.0
 django-environ==0.4.5
 django-extensions==2.2.1
 django-feedparser==0.2.1

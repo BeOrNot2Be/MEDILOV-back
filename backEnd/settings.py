@@ -29,12 +29,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'medilov',
     'django_feedparser',
     'jet.dashboard',
     'jet',
-    'django.contrib.admin'
+    'django.contrib.admin',
+
 ]
 
 JET_DEFAULT_THEME = 'default'
@@ -88,6 +88,7 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
             'PASSWORD': os.environ['DBUSERPASSWORD']
         }
     }
+
 else:
     DEBUG = True  
     SECRET_KEY = 'ctwj8_&w$vkw2ce&w+$c%8z$m6hpe4f8f8y^#h&_rt_o7na23u'
@@ -98,8 +99,8 @@ else:
             'NAME': 'medilov',
         }
     }
-
-# Password validation
+    
+# Password validation'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -137,12 +138,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
+TEMPLATES_URL = '/templates/'
 
 django_heroku.settings(locals())

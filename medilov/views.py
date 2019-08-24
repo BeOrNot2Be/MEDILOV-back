@@ -1,8 +1,27 @@
-from rest_framework import generics
+from django.shortcuts import get_object_or_404, render
+from django.http import Http404, HttpResponse
+
 from .models import Photo, Gallery, GalleryTopic, Service, AboutUnit
-from .serializers import PhotoSerializer, GallerySerializer, GalleriesSerializer, GalleryTopicSerializer, ServiceSerializer, AboutUnitSerializer
 
 
+
+def ContactView(request):
+    return HttpResponse("in development")
+
+def GalleriesView(request):
+    return 
+
+def GalleryView(request):
+
+def ServiceView(request):
+    services = Service.objects.all()
+    return HttpResponse(services)
+
+def AboutView(request):
+    units = AboutUnit.objects.order_by('parent')
+    return HttpResponse(units)
+
+"""
 class ListPhotosView(generics.ListAPIView):
     queryset = Photo.objects.all()
     serializer_class = PhotoSerializer
@@ -17,12 +36,4 @@ class ListGalleriesView(generics.ListAPIView):
 
 class ListGalleryTopicsView(generics.ListAPIView):
     queryset = GalleryTopic.objects.all()
-    serializer_class = GalleryTopicSerializer
-
-class ListServicesView(generics.ListAPIView):
-    queryset = Service.objects.all()
-    serializer_class = ServiceSerializer
-
-class ListAboutUnitView(generics.ListAPIView):
-    queryset = AboutUnit.objects.order_by('parent')
-    serializer_class =  AboutUnitSerializer
+"""
