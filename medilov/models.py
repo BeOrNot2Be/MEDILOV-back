@@ -15,7 +15,7 @@ class GalleryTopic(models.Model):
         verbose_name_plural = 'gallery topics'
 
 class Gallery(models.Model):
-    title = models.CharField('gallery title', max_length=30, unique=True)
+    title = models.CharField('gallery title', max_length=30,  unique=True)
     description = models.CharField('gallery description', max_length=255, blank=True)
     date = models.DateTimeField('last update', auto_now=True)
     gallery_logo = models.CharField('img logo url', max_length=1000)
@@ -66,9 +66,9 @@ class Service(models.Model):
 # about page models 
 
 class AboutUnit(models.Model):
-    title = models.CharField('service title', max_length=30)
-    short_description = models.CharField('short service description', max_length=350, blank=True)
+    short_description = models.CharField('short post description', max_length=350, blank=True)
     phrase = models.CharField('letters for phrase', max_length=10, blank=True)
+    title = models.CharField('img title', max_length=30)
     url = models.CharField('img url', max_length=1000, blank=True)
     parent = models.ForeignKey(
        'self',

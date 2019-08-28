@@ -1,0 +1,59 @@
+{% extends "./index.html" %}
+{% load static %}
+
+{% block title %}🎴 | ABOUT US{% endblock %}
+
+{% block aditional_metadata %}
+{% endblock %}
+
+{% block style_injection_block %}
+		<link rel="stylesheet" href="https://use.typekit.net/dec4mzz.css">
+		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "css/base1.css" %}" />
+{% endblock %}
+
+{% block script_injection_upper_block %}
+	<script>
+		document.documentElement.className = "js";
+		var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e };
+		supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+	</script>
+{% endblock %}
+
+{% block body %}
+	<body class="demo-6 loading">
+		<header class="codrops-header">
+			<h1 class="codrops-title">Christian Zana <span>Photography</span></h1>
+			<span class="stack-title-header"></span>
+			<nav class="menu">
+				<a class="menu__item menu__item--current" href="/about"><span>About</span></a>
+				<a class="menu__item" href="/services"><span>Service</span></a>
+				<a class="menu__item " href="/"><span>Work</span></a>
+				<a class="menu__item" href="/contacts"><span>Contact</span></a>
+			</nav>
+		</header>
+		<main>
+			<div data-scroll class="page page--layout-2">
+				<div class="content content--alternate">
+					{% for unit in units %}
+						<div class="content__item">
+							<div class="content__item-imgwrap">
+								<div class="content__item-img" style="background-image: url({{unit.url}});"></div>
+							</div>
+							<h2 class="content__item-title">{{unit.phrase}}</h2>
+							<p class="content__item-description">{{unit.short_description}}</p>
+							<div class="content__item-decobar"></div>
+							<input type="hidden" value="{{unit.color}" />
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</main>
+	</body>
+{% endblock %}
+
+{% block script_injection_lower_block %}
+	<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
+	<script src="{% static "js/TweenMax.min.js" %}"></script>
+	<script src="{% static "js/demo6.js" %}"></script>
+{% endblock %}

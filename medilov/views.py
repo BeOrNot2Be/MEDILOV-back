@@ -9,17 +9,32 @@ def ContactView(request):
     return HttpResponse("in development")
 
 def GalleriesView(request):
-    return 
+    
+    context = {
+        "gallerytopics": GalleryTopic.objects.all()
+        }
+    return render(request, "work.html", context)
 
-def GalleryView(request):
+def GalleryView(request, gallery_id):
+    
+    context = {
+        "gallery": Gallery.objects.get(id=gallery_id)
+        }
+    return render(request, "gallery.html", context)
 
 def ServiceView(request):
-    services = Service.objects.all()
-    return HttpResponse(services)
+
+    context = {
+        "services": Service.objects.all()
+        }
+    return render(request, "services.html", context)
 
 def AboutView(request):
-    units = AboutUnit.objects.order_by('parent')
-    return HttpResponse(units)
+
+    context = {
+        "units": AboutUnit.objects.order_by('parent')
+        }
+    return render(request, "about.html", context)
 
 """
 class ListPhotosView(generics.ListAPIView):

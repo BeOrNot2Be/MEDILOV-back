@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Aesthetic by gettemplates.co
+	Twitter: http://twitter.com/gettemplateco
+	URL: http://gettemplates.co
+-->
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Photo &mdash; Free Website Template, Free HTML5 Template by gettemplates.co</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="gettemplates.co" />
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<!-- <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet"> -->
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static "css/animate.css" %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static "css/icomoon.css" %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static "css/style.css" %}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+
+	<!-- Modernizr JS -->
+	<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		<svg class="hidden">
+			<symbol id="icon-longarrow" viewBox="0 0 54 24">
+				<title>longarrow</title>
+				<path d="M.42 11.158L12.38.256c.333-.27.696-.322 1.09-.155.395.166.593.467.593.903v6.977h38.87c.29 0 .53.093.716.28.187.187.28.426.28.716v5.98c0 .29-.093.53-.28.716a.971.971 0 0 1-.716.28h-38.87v6.977c0 .416-.199.717-.592.903-.395.167-.759.104-1.09-.186L.42 12.62a1.018 1.018 0 0 1 0-1.462z" />
+			</symbol>
+		</svg>
+	
+
+	<div id="fh5co-page">
+	<header>
+		<nav>
+			<button class="content__close" onclick="window.history.back()">
+				<svg class="icon icon--longarrow">
+					<use xlink:href="#icon-longarrow"></use>
+				</svg> 
+				<span>
+					Back
+				</span> 
+			</button>
+		</nav>
+	</header>
+	<div class="grid-container">
+		<div class="container-fluid" id="fh5co-image-grid">
+            <div class="grid">
+            <div class="grid-sizer"></div>
+                {% for img in gallery.photos.all %}
+                    <div class="grid-item item animate-box" data-animate-effect="fadeIn">
+                            <a href="{{img.url}}" class="image-popup" title="{{img.title}}">
+                                <div class="img-wrap">
+                                    <img src="{{img.url}}" alt="{{img.title}}" class="img-responsive">
+                                </div>
+                                <div class="text-wrap">
+                                    <div class="text-inner popup">
+                                        <div>
+                                            <h2>{{img.title}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                    </div>
+                {% endfor %}
+            </div>
+		</div>
+	</div>
+
+	</div>
+	
+	<!-- jQuery -->
+	<script src="{% static "js/jquery.min.js" %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static "js/bootstrap.min.js" %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static "js/jquery.waypoints.min.js" %}"></script>
+
+	<!-- Magnific -->
+	<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+	<script src="{% static "js/magnific-popup-options.js" %}"></script>
+	<!-- Isotope & imagesLoaded -->
+	<script src="{% static "js/isotope.pkgd.min.js" %}"></script>
+	<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
+	<!-- GSAP  -->
+	<script src="{% static "js/TweenLite.min.js" %}"></script>
+	<script src="{% static "js/CSSPlugin.min.js" %}"></script>
+	<script src="{% static "js/EasePack.min.js" %}"></script>
+
+	<!-- MAIN JS -->
+	<script src="{% static "js/mainSingle.js" %}"></script>
+
+	</body>
+</html>
+

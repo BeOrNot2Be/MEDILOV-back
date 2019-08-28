@@ -1,0 +1,68 @@
+{% extends "./index.html" %}
+{% load static %}
+
+{% block title %}🎞️ | PORTFOLIO{% endblock %}
+
+{% block aditional_metadata %}
+{% endblock %}
+
+{% block style_injection_block %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/normalize.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/flickity.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+{% endblock %}
+
+{% block script_injection_upper_block %}
+	<script src="{% static "js/modernizr.custom.js" %}"></script>
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<header class="codrops-header">
+			<h1 class="codrops-title">Christian Zana <span>Photography</span></h1>
+			<span class="stack-title-header"></span>
+			<nav class="menu">
+				<a class="menu__item" href="/about"><span>About</span></a>
+				<a class="menu__item" href="/services"><span>Service</span></a>
+				<a class="menu__item menu__item--current" href="/"><span>Work</span></a>
+				<a class="menu__item" href="/contacts"><span>Contact</span></a>
+			</nav>
+		</header>
+		<div class="hero">
+			<div class="hero__back hero__back--static"></div>
+			<div class="hero__back hero__back--mover"></div>
+			<div class="hero__front"></div>
+		</div>
+		<div class="stack-slider">
+			<div class="stacks-wrapper">
+                {% for gallerytopic in gallerytopics %}
+                    <div class="stack">
+                        <h2 class="stack-title"><a href="#" data-text="{{ gallerytopic.title }}"><span>{{ gallerytopic.title }}</span></a></h2>
+                        {% for gallery in gallerytopic.galleries.all %}
+                            <div class="item">
+                                <div class="item__content">
+                                    <a href="/gallery/{{gallery.id}}">
+                                        <img src="{{gallery.gallery_logo}}" alt="{{ gallery.title }}" />
+                                    </a>
+                                    <h3 class="item__title">{{ gallery.title }}<span class="item__date">{{ gallery.date|date:"M d, Y" }}</span></h3>
+                                    <div class="item__details">
+                                        <ul>
+                                            <li>{{ gallery.description }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>          
+                        {% endfor %} 
+                    </div> 
+                {% endfor %}
+            </div>
+		</div>
+		<img class="loader" src="{% static "img/three-dots.svg" %}" width="60" alt="Loader image" />
+	</div>
+{% endblock %}
+
+{% block script_injection_lower_block %}
+	<script src="{% static "js/flickity.pkgd.min.js" %}"></script>
+	<script src="{% static "js/smoothscroll.js" %}"></script>
+	<script src="{% static "js/main.js" %}"></script>
+{% endblock %}

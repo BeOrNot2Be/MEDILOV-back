@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Medilvo | {% block title %}{% endblock %}</title>
+	<meta name="description" content="A photography-inspired website layout with an expanding stack slider and a background image tilt effect" />
+	<meta name="keywords" content="photography, template, layout, effect, expand, image stack, animation, flickity, tilt" />
+	<meta name="author" content="BoOrNot2Be" />
+    {% block aditional_metadata %}{% endblock %}
+	<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+	{% block style_injection_block %}{% endblock %}
+    {% block script_injection_upper_block %}{% endblock %}
+</head>
+<body>
+	{% block body %}{% endblock %}
+    {% block script_injection_lower_block %}{% endblock %}
+</body>
+</html>
