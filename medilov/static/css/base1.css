@@ -24,6 +24,7 @@ body {
 	font-size: 1.5rem;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-image: url(http://www.transparenttextures.com/patterns/asfalt-light.png);
 }
 
 .demo-1 {
@@ -89,7 +90,7 @@ body {
 	--color-title: #1d1414;
 	/*font-family: ivymode, sans-serif;*/
 	--font-title: inherit;
-	font-size: 1.15rem;
+	font-size: 1em;
 	--aspect-ratio: 1/1.5;
 	--imgwidthmax: 505px;
 }
@@ -131,13 +132,11 @@ body {
 
 a {
 	text-decoration: none;
-	color: var(--color-link);
 	outline: none;
 }
 
 a:hover,
 a:focus {
-	color: var(--color-link-hover);
 	outline: none;
 }
 
@@ -220,7 +219,6 @@ a:focus {
 
 .content {
 	grid-area: grid;
-	margin: 25vh 0 30vh;
 }
 
 .content--offset {
@@ -358,7 +356,7 @@ a:focus {
 	line-height: 1;
 	font-family: var(--font-title);
 	font-weight: var(--font-weight-title);
-	color: var(--color-title);
+	color: #fff;
 	will-change: transform;
 	mix-blend-mode: var(--blendmode-title);
 }
@@ -465,4 +463,100 @@ a:focus {
 	.content--alternate .content__item:nth-child(even) .content__item-title {
 		grid-area: 1 / 1 / 4 / 2;
 	}
+}
+
+
+
+button {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	background: transparent;
+	padding: 0;
+	font-size: inherit;
+	font-family: inherit;
+  }
+  button.contact-button {
+	width: 12rem;
+	height: auto;
+	margin: auto;
+	margin-top: 1rem; 
+  }
+  button.contact-button .circle {
+	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+	position: relative;
+	margin: 0;
+	width: 3rem;
+	height: 3rem;
+	background: #fff;
+	border-radius: 1.625rem;
+  }
+  button.contact-button .circle .icon {
+	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background: #ef5350;
+  }
+  button.contact-button .circle .icon.arrow {
+	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+	left: 0.625rem;
+	width: 1.125rem;
+	height: 0.125rem;
+	background: none;
+  }
+  button.contact-button .circle .icon.arrow::before {
+	position: absolute;
+	content: '';
+	top: -0.25rem;
+	right: 0.0625rem;
+	width: 0.625rem;
+	height: 0.625rem;
+	border-top: 0.125rem solid #ef5350;
+	border-right: 0.125rem solid #ef5350;
+	-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+  }
+  button.contact-button .button-text {
+	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0.75rem 0;
+	margin: 0 0 0 1.85rem;
+	color: #fff;
+	font-weight: 700;
+	line-height: 1.6;
+	text-align: center;
+	text-transform: uppercase;
+  }
+  button:hover .circle {
+	width: 100%;
+  }
+  button:hover .circle .icon.arrow {
+	background: #ef5350;
+	-webkit-transform: translate(1rem, 0);
+			transform: translate(1rem, 0);
+  }
+  button:hover .button-text {
+	color: #ef5350;
+  }
+
+.contact-us-footer {
+	display: grid;
+	grid-row-start:-1;
+	grid-column-start:1;
+	grid-column-end:-1;
+	text-align: center;
+}
+.contact-us-footer .contact-text{
+	max-width: 500px;
+	margin: auto;
 }

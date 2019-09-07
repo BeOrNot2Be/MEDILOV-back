@@ -1,0 +1,195 @@
+{% extends "./index.html" %}
+{% load static %}
+
+{% block title %}📞 | CONTACTS{% endblock %}
+
+{% block aditional_metadata %}
+{% endblock %}
+
+{% block style_injection_block %}
+	<link rel="stylesheet"gvl type="text/css" href="{% static "css/all.min.css" %}">
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+	<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/header.css" %}"/>
+{% endblock %}
+
+{% block script_injection_upper_block %}
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+<main class="main_container">
+    <header class="codrops-header">
+        <h1 class="codrops-title">Christian Zana <span>Photography</span></h1>
+        <span class="stack-title-header"></span>
+        <nav class="menu">
+            <a class="menu__item" href="/about"><span>About</span></a>
+            <a class="menu__item" href="/services"><span>Service</span></a>
+            <a class="menu__item" href="/"><span>Work</span></a>
+            <a class="menu__item menu__item--current" href="/contacts"><span>Contact</span></a>
+        </nav>
+    </header>
+    <div style="height: 100px;"></div>
+    <div class="container">
+        <div class="wrapper light-wrapper">
+            <div class="container inner">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-sm-12">
+                        <div class="card text-white bg-dark" >
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <h3 class="card-title">Get in Touch</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Name</label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput2">Email address</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput3">Phone number</label>
+                                            <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">+1&nbsp;</span>
+                                                    </div>
+                                                <input type="tel" class="form-control" id="exampleFormControlInput3" placeholder=" phonenumber" aria-label="phonenumber" aria-describedby="basic-addon1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput4">Date when u wanna have us</label>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="form-control-wrapper">
+                                                            <input type="text" id="datepicker-start" class="form-control floating-label" placeholder="Start Date">
+                                                            <script>$('#datepicker-start').datepicker();</script>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-control-wrapper">
+                                                            <input type="text" id="datepicker-end" class="form-control floating-label" placeholder="End Date">
+                                                            <script>$('#datepicker-end').datepicker();</script>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
+                                            <select class="form-control custom-select" id="inlineFormCustomSelect">
+                                                <option selected>Choose...</option>
+                                                <option value="1">One</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput6">Description</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput6" placeholder="Why you want to contact us ?">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-3 text-center">
+                                        <button class="button-action contact-button send-button">
+                                            <div class="circle">
+                                                <div class="icon arrow">
+                                                    <div class="faicon">
+                                                        <span class="fa-stack fa-lg">
+                                                            <i class="fas fa-circle sendicon fa-stack-2x"></i>
+                                                            <i class="fas fa-paper-plane fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                    </div>	
+                                                </div>	
+                                            </div>
+                                            <p class="button-text">Send</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 65px;"></div>
+    <div class="container">
+        <div class="wrapper light-wrapper">
+            <div class="container inner">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-sm-12">
+                        <div class="card text-white bg-dark" >
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <h5 class="card-title">Contacts</h5>
+                                </div>
+                                <div style="height: 65px;"></div>
+                                <ul class="list-group list-group-flush">
+                                    <div class="list-group-item-action social-media-bar">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-facebook-square fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-instagram fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-pinterest-square fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-tumblr-square fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-adobe fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-youtube-square fa-3x"></i></a></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <p class="list-group-item-action  list-group-item-dark text-center">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-5 col-sm-12">
+                                                <button class="button-action contact-button">
+                                                    <div class="circle">
+                                                        <div class="icon arrow">
+                                                            <div class="faicon">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas backicon fa-circle fa-stack-2x"></i>
+                                                                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </div>	
+                                                        </div>	
+                                                    </div>
+                                                    <p class="button-text">maxcamer@medilov.com</p>
+                                                </button>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12">
+                                                <button class="button-action contact-button">
+                                                    <div class="circle">
+                                                        <div class="icon arrow">
+                                                            <div class="faicon">
+                                                                <span class="fa-stack fa-lg">
+                                                                    <i class="fas backicon fa-circle fa-stack-2x"></i>
+                                                                    <i class="fas fa-phone fa-stack-1x fa-inverse"></i>
+                                                                </span>
+                                                            </div>	
+                                                        </div>	
+                                                    </div>
+                                                    <p class="button-text">+1 503-354-9699</p>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block script_injection_lower_block %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+{% endblock %}

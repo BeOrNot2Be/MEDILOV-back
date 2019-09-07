@@ -40,7 +40,7 @@
 
 /* General styles */
 body {
-	background: #212121;
+	background: linear-gradient(145deg, #0f0f0f 0%, #2c2c2c 75%, #3f3f3f 100%);
 	color: #fff;
 	font-size: 1em;
 	overflow: hidden;
@@ -93,12 +93,12 @@ button:focus {
 	display: flex;
 	-webkit-flex: none;
 	flex: none;
-	margin: 0 10px;
 	z-index: 1000;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 100;
+	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 
 .cordrop-header-background {

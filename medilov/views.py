@@ -6,7 +6,9 @@ from .models import Photo, Gallery, GalleryTopic, Service, AboutUnit
 
 
 def ContactView(request):
-    return HttpResponse("in development")
+    context = {
+        }
+    return render(request, "contact.html", context)
 
 def GalleriesView(request):
     

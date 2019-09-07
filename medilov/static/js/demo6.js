@@ -47,7 +47,9 @@
             this.DOM.image = this.DOM.el.querySelector('.content__item-img');
             this.DOM.imageWrapper = this.DOM.image.parentNode;
             this.DOM.title = this.DOM.el.querySelector('.content__item-title');
+            this.DOM.color = this.DOM.el.querySelector('.content__item-color').value;
             this.DOM.deco = this.DOM.el.querySelector('.content__item-decobar');
+            this.DOM.deco.style.background = this.DOM.color;
             this.renderedStyles = {
                 // here we define which property will change as we scroll the page and the item is inside the viewport
                 // in this case we will be:

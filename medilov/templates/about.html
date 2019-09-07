@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block style_injection_block %}
-		<link rel="stylesheet" href="https://use.typekit.net/dec4mzz.css">
-		<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
-		<link rel="stylesheet" type="text/css" href="{% static "css/base1.css" %}" />
+	<link rel="stylesheet" href="https://use.typekit.net/dec4mzz.css">
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/base1.css" %}" />
 {% endblock %}
 
 {% block script_injection_upper_block %}
@@ -43,12 +43,24 @@
 							<h2 class="content__item-title">{{unit.phrase}}</h2>
 							<p class="content__item-description">{{unit.short_description}}</p>
 							<div class="content__item-decobar"></div>
-							<input type="hidden" value="{{unit.color}" />
+							<input type="hidden" class="content__item-color" value="{{unit.color}}" />
 						</div>
 					{% endfor %}
 				</div>
+				<footer class="contact-us-footer">
+					<h2>This is tittle</h2>
+					<span class="contact-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae numquam iure aspernatur tenetur dolorem alias deserunt, maiores molestiae laborum harum beatae atque magni error, rem sit aliquam ducimus excepturi dignissimos.</span>
+					
+					<button class="contact-button">
+						<div class="circle">
+							<span class="icon arrow"></span>
+						</div>
+						<p class="button-text">Contact us</p>
+					</button>
+				</footer>
 			</div>
 		</main>
+		
 	</body>
 {% endblock %}
 
