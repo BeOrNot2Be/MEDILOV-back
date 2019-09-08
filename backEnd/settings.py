@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'medilov',
     'django_feedparser',
@@ -41,6 +42,7 @@ JET_DEFAULT_THEME = 'default'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -87,7 +89,9 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
             'PASSWORD': os.environ['DBUSERPASSWORD']
         }
     }
-
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+    #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' for cache 
 else:
     DEBUG = True  
     SECRET_KEY = 'ctwj8_&w$vkw2ce&w+$c%8z$m6hpe4f8f8y^#h&_rt_o7na23u'
@@ -98,6 +102,7 @@ else:
             'NAME': 'medilov',
         }
     }
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
     
 # Password validation'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
