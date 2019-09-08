@@ -1,1 +1,2 @@
+release: source ./start.sh
 web: gunicorn backEnd.wsgi --log-file -
