@@ -73,7 +73,6 @@ WSGI_APPLICATION = 'backEnd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-print(os.environ)
 
 if 'DJANGO_DEBUG_FALSE' in os.environ:  
     DEBUG = False
