@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'backEnd.wsgi.application'
 if 'DJANGO_DEBUG_FALSE' in os.environ:  
     DEBUG = False
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  
-    ALLOWED_HOSTS = [os.environ['SITENAME']]
+    ALLOWED_HOSTS = [os.environ["SITENAME"]]
     DATABASES = {
         'default': {
             'ENGINE': 'djongo',
@@ -139,4 +139,39 @@ STATIC_URL = '/static/'
 
 TEMPLATES_URL = '/templates/'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'mysite.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'medilov': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
+}
+
 django_heroku.settings(locals())
+
+
