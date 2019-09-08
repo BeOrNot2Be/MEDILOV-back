@@ -1,5 +1,6 @@
 {% extends "./index.html" %}
 {% load static %}
+{% load custom_tags %}
 
 {% block title %}🎴 | ABOUT US{% endblock %}
 
@@ -22,16 +23,7 @@
 
 {% block body %}
 	<body class="demo-6 loading">
-		<header class="codrops-header">
-			<h1 class="codrops-title">Christian Zana <span>Photography</span></h1>
-			<span class="stack-title-header"></span>
-			<nav class="menu">
-				<a class="menu__item menu__item--current" href="/about"><span>About</span></a>
-				<a class="menu__item" href="/services"><span>Service</span></a>
-				<a class="menu__item " href="/"><span>Work</span></a>
-				<a class="menu__item" href="/contacts"><span>Contact</span></a>
-			</nav>
-		</header>
+		{% header "about" %}
 		<main>
 			<div data-scroll class="page page--layout-2">
 				<div class="content content--alternate">
@@ -50,13 +42,13 @@
 				<footer class="contact-us-footer">
 					<h2>This is tittle</h2>
 					<span class="contact-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae numquam iure aspernatur tenetur dolorem alias deserunt, maiores molestiae laborum harum beatae atque magni error, rem sit aliquam ducimus excepturi dignissimos.</span>
-					
 					<button class="contact-button">
 						<div class="circle">
 							<span class="icon arrow"></span>
 						</div>
 						<p class="button-text">Contact us</p>
 					</button>
+					<div style="height:100px;" ></div>
 				</footer>
 			</div>
 		</main>

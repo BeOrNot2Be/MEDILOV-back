@@ -273,6 +273,7 @@
             this.DOM.main.style.width = this.DOM.main.style.height = '100%';
             this.DOM.main.style.top = this.DOM.main.style.left = 0;
             this.DOM.main.style.overflow = 'hidden';
+            this.DOM.main.style.paddingTop = '100px';
         }
         initEvents() {
             // on resize reset the body's height

@@ -1,5 +1,6 @@
 {% extends "./index.html" %}
 {% load static %}
+{% load custom_tags %}
 
 {% block title %}🎞️ | PORTFOLIO{% endblock %}
 
@@ -18,16 +19,7 @@
 
 {% block body %}
 	<div class="container">
-		<header class="codrops-header">
-			<h1 class="codrops-title">Christian Zana <span>Photography</span></h1>
-			<span class="stack-title-header"></span>
-			<nav class="menu">
-				<a class="menu__item" href="/about"><span>About</span></a>
-				<a class="menu__item" href="/services"><span>Service</span></a>
-				<a class="menu__item menu__item--current" href="/"><span>Work</span></a>
-				<a class="menu__item" href="/contacts"><span>Contact</span></a>
-			</nav>
-		</header>
+		{% header "works" %}
 		<div class="hero">
 			<div class="hero__back hero__back--static"></div>
 			<div class="hero__back hero__back--mover"></div>

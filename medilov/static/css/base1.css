@@ -440,6 +440,7 @@ a:focus {
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas: 'header meta' '...  meta' 'grid grid';
 	}
+	
 }
 
 @media screen and (max-width: 40em) {
@@ -447,25 +448,20 @@ a:focus {
 	.content__item--expand:nth-child(even) .content__item-imgwrap {
 		grid-area: 1 / 1 / 3 / 3;
 	}
-	.content__item--expand .content__item-description,
-	.content__item--expand:nth-child(even) .content__item-description,
+	.content--alternate .content__item-description,
+	.content--alternate:nth-child(even) .content__item-description,
 	.content__item--wide .content__item-description,
 	.content__item--wide:nth-child(even) .content__item-description {
-		grid-area: 3 / 1 / 4 / 3;
-	    padding: 1rem 0;
-	    width: 100%;
-	    text-align: left;
+		grid-area: 3 / 1 / 3 / 2;
 	}
 	.content__item--wide .content__item-description {
 		padding: 1rem;
 	}
-	.content--alternate .content__item-title,
-	.content--alternate .content__item:nth-child(even) .content__item-title {
-		grid-area: 1 / 1 / 4 / 2;
-	}
 }
 
-
+.content__item:nth-child(even) .content__item-description{
+	grid-area: 3 / 1 / 3 / 2;
+}
 
 button {
 	position: relative;
@@ -501,7 +497,9 @@ button {
 	top: 0;
 	bottom: 0;
 	margin: auto;
-	background: #ef5350;
+	background: -webkit-linear-gradient(0deg, #ef5350 30%, #fc9842 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
   }
   button.contact-button .circle .icon.arrow {
 	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -546,7 +544,9 @@ button {
 			transform: translate(1rem, 0);
   }
   button:hover .button-text {
-	color: #ef5350;
+	background: -webkit-linear-gradient(0deg, #ef5350 30%, #fc9842 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
   }
 
 .contact-us-footer {

@@ -216,6 +216,7 @@ button:focus {
 	background: -webkit-linear-gradient(#ef5350, #FF706E);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	margin: 10px 0;
 }
 
 .social-media-icon:hover{

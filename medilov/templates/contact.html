@@ -1,5 +1,6 @@
 {% extends "./index.html" %}
 {% load static %}
+{% load custom_tags %}
 
 {% block title %}📞 | CONTACTS{% endblock %}
 
@@ -20,16 +21,7 @@
 
 {% block body %}
 <main class="main_container">
-    <header class="codrops-header">
-        <h1 class="codrops-title">Christian Zana <span>Photography</span></h1>
-        <span class="stack-title-header"></span>
-        <nav class="menu">
-            <a class="menu__item" href="/about"><span>About</span></a>
-            <a class="menu__item" href="/services"><span>Service</span></a>
-            <a class="menu__item" href="/"><span>Work</span></a>
-            <a class="menu__item menu__item--current" href="/contacts"><span>Contact</span></a>
-        </nav>
-    </header>
+    {% header "contacts" %}
     <div style="height: 100px;"></div>
     <div class="container">
         <div class="wrapper light-wrapper">
@@ -42,7 +34,7 @@
                                     <h3 class="card-title">Get in Touch</h3>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Name</label>
                                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your name">
@@ -61,7 +53,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label for="exampleFormControlInput4">Date when u wanna have us</label>
                                                 <div class="row">
@@ -95,7 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <div class="col-3 text-center">
+                                    <div class="col-md-3 col-sm-6 text-center">
                                         <button class="button-action contact-button send-button">
                                             <div class="circle">
                                                 <div class="icon arrow">
@@ -129,7 +121,7 @@
                                 <div class="text-center">
                                     <h5 class="card-title">Contacts</h5>
                                 </div>
-                                <div style="height: 65px;"></div>
+                                <div style="height: 30px;"></div>
                                 <ul class="list-group list-group-flush">
                                     <div class="list-group-item-action social-media-bar">
                                         <div class="row justify-content-center">
@@ -184,6 +176,7 @@
             </div>
         </div>
     </div>
+<div style="height: 100px;"></div>
 </main>
 {% endblock %}
 
