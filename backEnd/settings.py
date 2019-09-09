@@ -92,6 +92,14 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
     #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' for cache 
+    WEBSITEHOLDEREMAIL = os.environ['WHEMAIL']
+    EMAIL_HOST = os.environ['SMTP_SERVER'],
+    EMAIL_PORT = os.environ['SMTP_PORT'],
+    EMAIL_HOST_USER = os.environ['SMTP_USER'],
+    EMAIL_PASSWORD = os.environ['SMTP_PASSWORD'],
+    EMAIL_USE_TLS = True
+    EMAIL_USE_SSL = False
+    #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 else:
     DEBUG = True  
     SECRET_KEY = 'ctwj8_&w$vkw2ce&w+$c%8z$m6hpe4f8f8y^#h&_rt_o7na23u'
@@ -103,7 +111,12 @@ else:
         }
     }
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+    WEBSITEHOLDEREMAIL = "example@gmail.com"
     
+    #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+
 # Password validation'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 

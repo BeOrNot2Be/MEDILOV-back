@@ -33,76 +33,79 @@
                                 <div class="text-center">
                                     <h3 class="card-title">Get in Touch</h3>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput1">Name</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput2">Email address</label>
-                                            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="name@example.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput3">Phone number</label>
-                                            <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">+1&nbsp;</span>
-                                                    </div>
-                                                <input type="tel" class="form-control" id="exampleFormControlInput3" placeholder=" phonenumber" aria-label="phonenumber" aria-describedby="basic-addon1">
+                                <form action="/contacts/" method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="form_name">Name</label>
+                                                <input type="text" class="form-control" name="form_name" id="form_name" placeholder="Your name">
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput4">Date when u wanna have us</label>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div class="form-control-wrapper">
-                                                            <input type="text" id="datepicker-start" class="form-control floating-label" placeholder="Start Date">
-                                                            <script>$('#datepicker-start').datepicker();</script>
+                                            <div class="form-group">
+                                                <label for="form_email">Email address</label>
+                                                <input type="email" class="form-control" name="form_email" id="form_email" placeholder="name@example.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="form_phone">Phone number</label>
+                                                <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">+1&nbsp;</span>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="form-control-wrapper">
-                                                            <input type="text" id="datepicker-end" class="form-control floating-label" placeholder="End Date">
-                                                            <script>$('#datepicker-end').datepicker();</script>
-                                                        </div>
-                                                    </div>
+                                                    <input type="tel" class="form-control" name="form_phone" id="form_phone" placeholder=" phonenumber" aria-label="phonenumber" aria-describedby="basic-addon1">
                                                 </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mr-sm-2" for="inlineFormCustomSelect">Preference</label>
-                                            <select class="form-control custom-select" id="inlineFormCustomSelect">
-                                                <option selected>Choose...</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput6">Description</label>
-                                            <input type="email" class="form-control" id="exampleFormControlInput6" placeholder="Why you want to contact us ?">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <div class="col-md-3 col-sm-6 text-center">
-                                        <button class="button-action contact-button send-button">
-                                            <div class="circle">
-                                                <div class="icon arrow">
-                                                    <div class="faicon">
-                                                        <span class="fa-stack fa-lg">
-                                                            <i class="fas fa-circle sendicon fa-stack-2x"></i>
-                                                            <i class="fas fa-paper-plane fa-stack-1x fa-inverse"></i>
-                                                        </span>
-                                                    </div>	
-                                                </div>	
                                             </div>
-                                            <p class="button-text">Send</p>
-                                        </button>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlInput4">Date when u wanna have us</label>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="form-control-wrapper">
+                                                                <input type="text" name="datepicker_start" id="datepicker_start" class="form-control floating-label" placeholder="Start Date">
+                                                                <script>$('#datepicker_start').datepicker();</script>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="form-control-wrapper">
+                                                                <input type="text" name="datepicker_end" id="datepicker_end" class="form-control floating-label" placeholder="End Date">
+                                                                <script>$('#datepicker_end').datepicker();</script>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="mr-sm-2" for="form_service">What you want</label>
+                                                <select name="form_service" class="form-control custom-select" id="form_service">
+                                                    <option selected>Choose...</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="form_orderdescription">Description</label>
+                                                <input type="text" class="form-control" name="form_orderdescription" id="form_orderdescription" placeholder="Why you want to contact us ?">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-3 col-sm-6 text-center">
+                                            <button class="button-action contact-button send-button">
+                                                <div class="circle">
+                                                    <div class="icon arrow">
+                                                        <div class="faicon">
+                                                            <span class="fa-stack fa-lg">
+                                                                <i class="fas fa-circle sendicon fa-stack-2x"></i>
+                                                                <i class="fas fa-paper-plane fa-stack-1x fa-inverse"></i>
+                                                            </span>
+                                                        </div>	
+                                                    </div>	
+                                                </div>
+                                                <p class="button-text">Send</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -137,34 +140,38 @@
                                     <p class="list-group-item-action  list-group-item-dark text-center">
                                         <div class="row justify-content-center">
                                             <div class="col-md-5 col-sm-12">
-                                                <button class="button-action contact-button">
-                                                    <div class="circle">
-                                                        <div class="icon arrow">
-                                                            <div class="faicon">
-                                                                <span class="fa-stack fa-lg">
-                                                                    <i class="fas backicon fa-circle fa-stack-2x"></i>
-                                                                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                                                                </span>
+                                                <a href="mailto:maxcamer@medilov.com">
+                                                    <button class="button-action contact-button">
+                                                        <div class="circle">
+                                                            <div class="icon arrow">
+                                                                <div class="faicon">
+                                                                    <span class="fa-stack fa-lg">
+                                                                        <i class="fas backicon fa-circle fa-stack-2x"></i>
+                                                                        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                                                                    </span>
+                                                                </div>	
                                                             </div>	
-                                                        </div>	
-                                                    </div>
-                                                    <p class="button-text">maxcamer@medilov.com</p>
-                                                </button>
+                                                        </div>
+                                                        <p class="button-text"> maxcamer@medilov.com</p>
+                                                    </button>
+                                                </a>
                                             </div>
                                             <div class="col-md-5 col-sm-12">
-                                                <button class="button-action contact-button">
-                                                    <div class="circle">
-                                                        <div class="icon arrow">
-                                                            <div class="faicon">
-                                                                <span class="fa-stack fa-lg">
-                                                                    <i class="fas backicon fa-circle fa-stack-2x"></i>
-                                                                    <i class="fas fa-phone fa-stack-1x fa-inverse"></i>
-                                                                </span>
+                                                <a href="tel:503-354-9699">
+                                                    <button class="button-action contact-button">
+                                                        <div class="circle">
+                                                            <div class="icon arrow">
+                                                                <div class="faicon">
+                                                                    <span class="fa-stack fa-lg">
+                                                                        <i class="fas backicon fa-circle fa-stack-2x"></i>
+                                                                        <i class="fas fa-phone fa-stack-1x fa-inverse"></i>
+                                                                    </span>
+                                                                </div>	
                                                             </div>	
-                                                        </div>	
-                                                    </div>
-                                                    <p class="button-text">+1 503-354-9699</p>
-                                                </button>
+                                                        </div>
+                                                        <p class="button-text">+1 503-354-9699</p>
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </p>

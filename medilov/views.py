@@ -1,12 +1,26 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import Http404, HttpResponse
-
 from .models import Photo, Gallery, GalleryTopic, Service, AboutUnit
-
+from .forms import NameForm
+from .email import send_appoitment_registration
 
 
 def ContactView(request):
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+        if form.is_valid():
+            email_data = {
+                'name':form.cleaned_data['form_name'],
+                'phonenumber':form.cleaned_data['form_phone'],
+                'dates':f"from {form.cleaned_data['datepicker_start']} to {form.cleaned_data['datepicker_end']}",
+                'description':form.cleaned_data['form_orderdescription'],
+                'job':form.cleaned_data['form_service'],
+            }
+            send_appoitment_registration(form.cleaned_data['form_email'], email_data)
+        else:
+            print("not valid...")#DEVELOPMENT
     context = {
+        "services": Service.objects.all()
         }
     return render(request, "contact.html", context)
 
