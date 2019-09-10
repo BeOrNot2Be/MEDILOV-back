@@ -19,67 +19,12 @@ body {
 	--size-title: 10rem;
 	--font-weight-title: 400;
 	color: var(--color-text);
-	background-color: var(--color-bg);
-	font-family: turquoise, serif;
+	background-color: #212121!important;
+	font-family: turquoise, serif!important;
 	font-size: 1.5rem;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-image: url(http://www.transparenttextures.com/patterns/asfalt-light.png);
-}
-
-.demo-1 {
-	--color-text: #111;
-	--color-bg: #bad5ca;
-	--color-link-hover: #5c4541;
-	--aspect-ratio: 32/17;
-	font-size: 1.25rem;
-	font-family: ivymode, sans-serif;
-	--size-title: 15vw;
-}
-
-.demo-2 {
-	--blendmode-title: difference;
-	--size-title: 12vw;
-}
-
-.demo-3 {
-	--color-text: #905348;
-	--color-bg: #120605;
-	--color-link: #8f8f76;
-	--color-link-hover: #fff;
-	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-	font-size: 1rem;
-	--imgwidthmax: 400px;
-	--color-description: #7e605b;
-	--font-title: ivymode;
-	--size-title: 9vw;
-	--imgwidthmax: 600px;
-}
-
-.demo-4 {
-	--color-text: #a9a798;
-	--color-bg: #cccdb9;
-	--color-link: #fff;
-	--color-link-hover: #a9a798;
-	--color-title: #fff;
-	font-family: collier, sans-serif;
-	--font-title: inherit;
-	--font-weight-title: 100;
-	font-size: 1.15rem;
-	--imgwidthmax: 520px;
-}
-
-.demo-5 {
-	--color-text: #f0f0f0;
-    --color-bg: #000000;
-    --color-link: #c5a45b;
-    --color-link-hover: #f0f0f0;
-    --color-title: #f0f0f0;
-	font-family: input-mono, monospace;
-	--font-title: inherit;
-	font-size: 1.15rem;
-	--aspect-ratio: 1/1.5;
-	--font-weight-title: 800;
+	background-image: url(http://www.transparenttextures.com/patterns/asfalt-light.png)!important;
 }
 
 .demo-6 {

@@ -1,5 +1,5 @@
 <header class="codrops-header">
-    <h1 class="codrops-title"><span class="name-header">Max Avilov </span><span class="company-header">Medilov&#8482;</span></h1>
+    <h1 class="codrops-title">{% if page != "services" %}<span class="name-header">Max Avilov </span><span class="company-header">Medilov&#8482;</span>{% endif %}</h1>
     <span class="stack-title-header"></span>
     <nav class="menu">
         <a class="menu__item {% if page == "about" %} menu__item--current {% endif %}" href="/about"><span>About</span></a>
@@ -8,5 +8,21 @@
         <a class="menu__item {% if page == "contacts" %} menu__item--current {% endif %}" href="/contacts"><span>Contact</span></a>
     </nav>
 </header>
+<div class="header">
+    <span class="stack-title-header-mobile"><a href="#" data-text="marriage"><span></span></a></span> {% if page != "services" %}<h1 class="codrops-title"><span class="name-header">Max Avilov </span><span class="company-header">Medilov&#8482;</span></h1>{% endif %}
+    <div class="burger-container">
+        <div class="hamburger">
+            <div class="hamburger-box hamburger--emphatic-r">
+                <div class="hamburger-inner"></div>
+            </div>
+        </div>
+    </div>
+    <ul class="menu">
+    <li class="menu-item {% if page == "about" %} menu-item--current {% endif %}"><a href="/about"><span>About</span></a></li>
+    <li class="menu-item {% if page == "services" %} menu-item--current {% endif %}"><a href="/services"><span>Services</span></a></li>
+    <li class="menu-item {% if page == "works" %} menu-item--current {% endif %}"><a href="/"><span>Works</span></a></li>
+    <li class="menu-item {% if page == "contacts" %} menu-item--current {% endif %}"><a href="/contacts"><span>Contact</span></a></li>
+    </ul>
+</div>
 
 

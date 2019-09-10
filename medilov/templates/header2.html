@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+        
+</style>
+<body>    
+        
+    <script>    
+            (function(){
+                var burger = document.querySelector('.burger-container'),
+                    header = document.querySelector('.header');
+                    burgerButton = document.querySelector('.hamburger-box'),
+                burger.onclick = function() {
+                    header.classList.toggle('menu-opened');
+                    burgerButton.classList.toggle('is-active')
+                }
+            }());
+    </script>
+</body>
+</html>
+

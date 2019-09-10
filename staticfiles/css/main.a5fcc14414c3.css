@@ -38,38 +38,6 @@
 	clear: both;
 }
 
-/* General styles */
-body {
-	background: linear-gradient(145deg, #0f0f0f 0%, #2c2c2c 75%, #3f3f3f 100%);
-	color: #fff;
-	font-size: 1em;
-	overflow: hidden;
-	position: relative;
-	overflow-y: scroll;
-	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-a {
-	color: #585558;
-	text-decoration: none;
-	outline: none;
-}
-
-a:hover {
-	color: #ef5350;
-}
-
-a:hover,
-a:focus {
-	outline: none;
-}
-
-button:focus {
-	outline: none;
-}
-
 /* Main container */
 .container {
 	position: relative;
@@ -83,115 +51,7 @@ button:focus {
 	-moz-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
-}
-
-/* Header */
-.codrops-header {
-	padding: 1em 0;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex: none;
-	flex: none;
-	z-index: 1000;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 100;
-	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-}
-
-.cordrop-header-background {
-	background: -webkit-linear-gradient(0deg, #303030 0, #1f1f1f 50%, #262626 100%);
-	transition: 200ms;
-}
-
-.codrops-header h1 {
-	font-size: 1em;
-	margin: 0 auto 0 0;
-	padding: 0.5em;
-}
-
-.codrops-header h1 span {
-	color: #585558;
-}
-
-.codrops-links {
-	position: relative;
-	display: inline-block;
-	white-space: nowrap;
-	text-align: center;
-	margin: 0;
-	height: 40px;
-	-webkit-flex: none;
-	flex: none;
-}
-
-.codrops-links::after {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 1px;
-	height: 100%;
-	min-height: 20px;
-	background: #585558;
-	content: '';
-	-webkit-transform: rotate3d(0, 0, 1, 22.5deg);
-	transform: rotate3d(0, 0, 1, 22.5deg);
-}
-
-.codrops-icon {
-	display: inline-block;
-	margin: 0.5em;
-	width: 1.5em;
-	text-decoration: none;
-}
-
-.codrops-icon:before {
-	margin: 0 5px;
-	text-transform: none;
-	font-weight: normal;
-	font-style: normal;
-	font-variant: normal;
-	font-family: 'codropsicons';
-	line-height: 1;
-	speak: none;
-	-webkit-font-smoothing: antialiased;
-}
-
-.codrops-icon span {
-	display: none;
-}
-
-.codrops-icon--drop:before {
-	content: "\e001";
-}
-
-.codrops-icon--prev:before {
-	content: "\e004";
-}
-
-/* Menu */
-.menu {
-	font-size: 1em;
-	padding: 0.5em;
-}
-
-.menu__item {
-	font-weight: bold;
-	margin: 0 1em;
-}
-
-.menu__item:hover{
-	background: -webkit-linear-gradient(0deg, #ef5350 30%, #fc9842 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-
-.menu__item--current {
-	background: -webkit-linear-gradient(0deg, #ef5350 30%, #fc9842 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	background: linear-gradient(145deg, #0f0f0f 0%, #2c2c2c 75%, #3f3f3f 100%);
 }
 
 /* Hero image */
@@ -385,6 +245,18 @@ button:focus {
 	opacity: 1;
 }
 
+.stack-title-header-mobile a span{
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 700;
+  padding-left: 5px;
+  float: left;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+}
+
+
+
 .stack-title-header{
 	opacity: 0;
 	float: left;
@@ -399,6 +271,18 @@ button:focus {
 	transition: transform 0.5s, opacity 0.3s;
 	-webkit-transition-timing-function: cubic-bezier(0.6,0,0.4,1);
 	transition-timing-function: cubic-bezier(0.6,0,0.4,1);
+}
+
+.stack-title-header-mobile::before{
+	content: '';
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top:10px;
+	z-index: 100;
+	background: url("../img/arrow-colored.7c9380eb7249.svg") no-repeat center center;
+	-webkit-transform: rotate3d(0,0,1,200deg);
+	transform: rotate3d(0,0,1,270deg);
 }
 
 .stack-title-header a::after{
@@ -806,31 +690,14 @@ button:focus {
 	}
 }
 
+
 @media screen and (max-width: 45em) {
 	.stack-title {
 		font-size: 1.75em;
 	}
-	.menu__item {
-		display: block;
-		background: #4F4E4E;
-		overflow: hidden;
-		height: 4px;
-		width: 30px;
-		margin: 3px 10px 0 0;
-	}
-	.menu__item span {
-		display: none;
-	}
-	.codrops-header {
-		padding: 0.5em 0;
-	}
 	.stack.stack-prev .stack-title::after, 
 	.stack.stack-next .stack-title::after {
 		top: 1.85em;
-	}
-	.codrops-header h1 {
-		font-size: 0.85em;
-		padding: 0.25em;
 	}
 }
 
@@ -842,8 +709,3 @@ button:focus {
 	}
 }
 
-.name-header{
-	background: -webkit-linear-gradient(0deg, #fc6764 30%, #910a0a 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}

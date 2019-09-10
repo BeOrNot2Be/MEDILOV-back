@@ -12,10 +12,23 @@
     {% block aditional_metadata %}{% endblock %}
 	<link rel="shortcut icon" href="{% static "favicon.ico" %}">
 	{% block style_injection_block %}{% endblock %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/normalize.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/mobile_header.css" %}">
     {% block script_injection_upper_block %}{% endblock %}
 </head>
 <body>
 	{% block body %}{% endblock %}
     {% block script_injection_lower_block %}{% endblock %}
+	<script>    
+            (function(){
+                var burger = document.querySelector('.burger-container'),
+                    header = document.querySelector('.header');
+                    burgerButton = document.querySelector('.hamburger-box'),
+                burger.onclick = function() {
+                    header.classList.toggle('menu-opened');
+                    burgerButton.classList.toggle('is-active')
+                }
+            }());
+    </script>
 </body>
 </html>

@@ -34,6 +34,7 @@
 		},
 		slider = document.querySelector('.stack-slider'),
 		stackHeader = document.querySelector('.stack-title-header'),
+		mobileHeader = document.querySelector('.stack-title-header-mobile'),
 		mainHeader = document.querySelector('.codrops-header'),
 		stacksWrapper = slider.querySelector('.stacks-wrapper'),
 		stacks = [].slice.call(stacksWrapper.children),
@@ -137,6 +138,43 @@
 							stackHeader.style.opacity = '1';
 							stackHeader.style.transition = "opacity 0.25s linear 0s";
 						}, 300);
+
+						mobileHeader.addEventListener('click', function(ev){
+							if( classie.has(stack, 'is-selected') ) { // current stack
+								if( classie.has(bodyEl, 'view-full') ) { // stack is opened
+										var closeStack = function() {
+											classie.remove(bodyEl, 'move-items');
+											setTimeout(function() { 
+												classie.remove(mainHeader, 'cordrop-header-background');												stackHeader.innerHTML = '';
+												titleEl.style.display = 'inline-block';
+												gap.parentNode.removeChild(gap)
+												simagehero.style.opacity = '1';
+												simagehero.style.transition = "opacity 0.25s linear 0s";
+											}, 300);
+											onEndTransition(slider, function() {
+												classie.remove(bodyEl, 'view-full');
+												bodyEl.style.height = '';
+												flkty.bindDrag();
+												flkty.options.accessibility = true;
+												canMoveHeroImage = true;
+											});
+										};
+
+										// if the user scrolled down, let's first scroll all up before closing the stack.
+										var scrolled = scrollY();
+										if( scrolled > 0 ) {
+											smooth_scroll_to(isFirefox ? docElem : bodyEl || docElem, 0, 500).then(function() {
+												closeStack();
+											});
+										}
+										else {
+											closeStack();
+										}
+								}
+							}
+						})
+
+
 						stackHeader.addEventListener('click', function(ev) {
 							ev.preventDefault();
 							if( classie.has(stack, 'is-selected') ) { // current stack
@@ -145,8 +183,7 @@
 											classie.remove(bodyEl, 'move-items');
 											setTimeout(function() { 
 												classie.remove(mainHeader, 'cordrop-header-background');
-												stackHeader.innerHTML = '';
-												titleEl.style.display = 'inline-block';
+												stackHeader.innerHTML = '';												titleEl.style.display = 'inline-block';
 												gap.parentNode.removeChild(gap)
 												simagehero.style.opacity = '1';
 												simagehero.style.transition = "opacity 0.25s linear 0s";
