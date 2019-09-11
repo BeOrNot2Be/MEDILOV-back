@@ -42,6 +42,19 @@ class Photo(models.Model):
         verbose_name = 'photo'
         verbose_name_plural = 'photos'
 
+class Video(models.Model):
+    title = models.CharField('video title', max_length=30)
+    url = models.CharField('video url', max_length=1000, unique=True)
+    preview = models.CharField('img url', max_length=1000, unique=True)
+    gallery = models.ForeignKey(Gallery, models.DO_NOTHING, null=True, blank=True, related_name='videos')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'video'
+        verbose_name_plural = 'videos'
+
 
 # service page models 
 

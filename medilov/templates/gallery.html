@@ -41,7 +41,7 @@
 	<![endif]-->
 
 	</head>
-	<body>
+	<body style="min-height: 100vh;">
 		<svg class="hidden">
 			<symbol id="icon-longarrow" viewBox="0 0 54 24">
 				<title>longarrow</title>
@@ -67,7 +67,23 @@
 		<div class="container-fluid" id="fh5co-image-grid">
             <div class="grid">
             <div class="grid-sizer"></div>
-                {% for img in gallery.photos.all %}
+                {% for video in gallery.videos.all %}
+					<div class="grid-item item animate-box" data-animate-effect="fadeIn">
+                            <a href="{{video.url}}" class="popup-youtube" title="smth">
+								<div class="img-wrap">
+                                    <img src="{{video.preview}}" alt="{{video.title}}" class="img-responsive">
+                                </div>
+                                <div class="text-wrap">
+                                    <div class="text-inner popup">
+                                        <div>
+                                            <h2>Play video</h2>
+                                        </div>
+                                    </div>
+                                </div>                          
+							</a>
+                    </div>
+				{% endfor %}
+				{% for img in gallery.photos.all %}
                     <div class="grid-item item animate-box" data-animate-effect="fadeIn">
                             <a href="{{img.url}}" class="image-popup" title="{{img.title}}">
                                 <div class="img-wrap">

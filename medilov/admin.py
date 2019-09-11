@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Photo, Gallery, GalleryTopic, AboutUnit, Service
+from .models import Photo, Gallery, GalleryTopic, AboutUnit, Service, Video
 from .forms import AboutUnitForm
 
 class AboutUnitAdmin(admin.ModelAdmin):
@@ -12,6 +12,7 @@ class AboutUnitAdmin(admin.ModelAdmin):
 
 admin.site.register(AboutUnit, AboutUnitAdmin)
 admin.site.register(Photo)
+admin.site.register(Video)
 admin.site.register(Gallery)
 admin.site.register(GalleryTopic)
 admin.site.register(Service)
