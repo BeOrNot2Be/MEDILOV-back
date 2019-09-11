@@ -27,10 +27,12 @@ var smooth_scroll_to = function(element, target, duration) {
 
     // based on http://en.wikipedia.org/wiki/Smoothstep
     var smooth_step = function(start, end, point) {
-        if(point <= start) { return 0; }
-        if(point >= end) { return 1; }
+        if (point <= start) { return 0; }
+        if (point >= end) {
+            return 1;
+        }
         var x = (point - start) / (end - start); // interpolation
-        return x*x*(3 - 2*x);
+        return x * x * (3 - 2 * x);
     }
 
     return new Promise(function(resolve, reject) {
@@ -40,7 +42,7 @@ var smooth_scroll_to = function(element, target, duration) {
 
         // This is like a think function from a game loop
         var scroll_frame = function() {
-            if(element.scrollTop != previous_top) {
+            if (element.scrollTop != previous_top) {
                 reject("interrupted");
                 return;
             }
@@ -52,7 +54,7 @@ var smooth_scroll_to = function(element, target, duration) {
             element.scrollTop = frameTop;
 
             // check if we're done!
-            if(now >= end_time) {
+            if (now >= end_time) {
                 resolve();
                 return;
             }
@@ -60,8 +62,8 @@ var smooth_scroll_to = function(element, target, duration) {
             // If we were supposed to scroll but didn't, then we
             // probably hit the limit, so consider it done; not
             // interrupted.
-            if(element.scrollTop === previous_top
-                && element.scrollTop !== frameTop) {
+            if (element.scrollTop === previous_top &&
+                element.scrollTop !== frameTop) {
                 resolve();
                 return;
             }

@@ -1,13 +1,13 @@
 /**
-* demo6.js
-* http://www.codrops.com
-*
-* Licensed under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-* 
-* Copyright 2019, Codrops
-* http://www.codrops.com
-*/
+ * demo6.js
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * Copyright 2019, Codrops
+ * http://www.codrops.com
+ */
 {
     // helper functions
     const MathUtils = {
@@ -21,14 +21,14 @@
 
     // body element
     const body = document.body;
-    
+
     // calculate the viewport size
     let winsize;
-    const calcWinsize = () => winsize = {width: window.innerWidth, height: window.innerHeight};
+    const calcWinsize = () => winsize = { width: window.innerWidth, height: window.innerHeight };
     calcWinsize();
     // and recalculate on resize
     window.addEventListener('resize', calcWinsize);
-    
+
     // scroll position
     let docScroll;
     // for scroll speed calculation
@@ -42,7 +42,7 @@
     class Item {
         constructor(el) {
             // the .item element
-            this.DOM = {el: el};
+            this.DOM = { el: el };
             // the inner image
             this.DOM.image = this.DOM.el.querySelector('.content__item-img');
             this.DOM.imageWrapper = this.DOM.image.parentNode;
@@ -59,9 +59,9 @@
                 // we interpolate between the previous and current value to achieve a smooth effect
                 innerTranslationY: {
                     // interpolated value
-                    previous: 0, 
+                    previous: 0,
                     // current value
-                    current: 0, 
+                    current: 0,
                     // amount to interpolate
                     ease: 0.1,
                     // current value setter
@@ -73,42 +73,42 @@
                     }
                 },
                 titleTranslationY: {
-                    previous: 0, 
-                    current: 0, 
+                    previous: 0,
+                    current: 0,
                     ease: 0.1,
-                    fromValue: Number(MathUtils.getRandomFloat(30,400)),
+                    fromValue: Number(MathUtils.getRandomFloat(30, 400)),
                     setValue: () => {
                         const fromValue = this.renderedStyles.titleTranslationY.fromValue;
-                        const toValue = -1*fromValue;
+                        const toValue = -1 * fromValue;
                         const val = MathUtils.map(this.props.top - docScroll, winsize.height, -1 * this.props.height, fromValue, toValue);
                         return fromValue < 0 ? Math.min(Math.max(val, fromValue), toValue) : Math.max(Math.min(val, fromValue), toValue);
                     }
                 },
                 titleScale: {
-                    previous: 0, 
-                    current: 0, 
+                    previous: 0,
+                    current: 0,
                     ease: 0.1,
                     setValue: () => {
                         const fromValue = 1;
                         const toValue = 0.6;
-                        const val = MathUtils.map(this.props.top - docScroll, winsize.height/2, -1 * this.props.height, fromValue, toValue);
+                        const val = MathUtils.map(this.props.top - docScroll, winsize.height / 2, -1 * this.props.height, fromValue, toValue);
                         return fromValue < 0 ? Math.min(Math.max(val, fromValue), toValue) : Math.max(Math.min(val, fromValue), toValue);
                     }
                 },
                 titleRotation: {
-                    previous: 0, 
-                    current: 0, 
+                    previous: 0,
+                    current: 0,
                     ease: 0.1,
                     setValue: () => {
                         const fromValue = 0;
                         const toValue = 10;
-                        const val = MathUtils.map(this.props.top - docScroll, winsize.height/2, -1 * this.props.height, fromValue, toValue);
+                        const val = MathUtils.map(this.props.top - docScroll, winsize.height / 2, -1 * this.props.height, fromValue, toValue);
                         return Math.max(Math.min(val, toValue), fromValue);
                     }
                 },
                 decoTranslationY: {
-                    previous: 0, 
-                    current: 0, 
+                    previous: 0,
+                    current: 0,
                     ease: 0.1,
                     setValue: () => {
                         const fromValue = -600;
@@ -127,18 +127,17 @@
             this.observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     this.isVisible = entry.intersectionRatio > 0;
-                    
-                    if ( entry.intersectionRatio > 0.5 ) {
+
+                    if (entry.intersectionRatio > 0.5) {
                         TweenMax.set(this.DOM.deco, {
                             transformOrigin: '0% 50%'
                         });
                         TweenMax.to(this.DOM.deco, 0.9, {
                             ease: Expo.easeOut,
-                            startAt: {opacity: 1, scaleX: 0},
+                            startAt: { opacity: 1, scaleX: 0 },
                             scaleX: 1
                         });
-                    }
-                    else {
+                    } else {
                         TweenMax.set(this.DOM.deco, {
                             transformOrigin: '100% 50%'
                         });
@@ -148,8 +147,8 @@
                         });
                     }
                 });
-            }, { 
-                threshold: [0,0.5]
+            }, {
+                threshold: [0, 0.5]
             });
             this.observer.observe(this.DOM.el);
             // init/bind events
@@ -157,7 +156,7 @@
         }
         update() {
             // sets the initial value (no interpolation)
-            for (const key in this.renderedStyles ) {
+            for (const key in this.renderedStyles) {
                 this.renderedStyles[key].current = this.renderedStyles[key].previous = this.renderedStyles[key].setValue();
             }
             // apply changes/styles
@@ -183,11 +182,11 @@
         }
         render() {
             // update the current and interpolated values
-            for (const key in this.renderedStyles ) {
+            for (const key in this.renderedStyles) {
                 this.renderedStyles[key].current = this.renderedStyles[key].setValue();
                 this.renderedStyles[key].previous = MathUtils.lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].ease);
             }
-            
+
             // and apply changes
             this.layout();
         }
@@ -197,7 +196,7 @@
             // translate/scale/rotate the title
             this.DOM.title.style.transform = `scale3d(${this.renderedStyles.titleScale.previous},${this.renderedStyles.titleScale.previous},1) translate3d(0,${this.renderedStyles.titleTranslationY.previous}px,0) rotate3d(0,0,1,${this.renderedStyles.titleRotation.previous}deg)`;
             // translate the deco
-            TweenMax.set(this.DOM.deco, {y: this.renderedStyles.decoTranslationY.previous});
+            TweenMax.set(this.DOM.deco, { y: this.renderedStyles.decoTranslationY.previous });
         }
     }
 
@@ -205,7 +204,7 @@
     class SmoothScroll {
         constructor() {
             // the <main> element
-            this.DOM = {main: document.querySelector('main')};
+            this.DOM = { main: document.querySelector('main') };
             // the scrollable element
             // we translate this element when scrolling (y-axis)
             this.DOM.scrollable = this.DOM.main.querySelector('div[data-scroll]');
@@ -219,9 +218,9 @@
             this.renderedStyles = {
                 translationY: {
                     // interpolated value
-                    previous: 0, 
+                    previous: 0,
                     // current value
-                    current: 0, 
+                    current: 0,
                     // amount to interpolate
                     ease: 0.1,
                     // current value setter
@@ -229,14 +228,14 @@
                     setValue: () => docScroll
                 },
                 skew: {
-                    previous: 0, 
-                    current: 0, 
+                    previous: 0,
+                    current: 0,
                     ease: 0.1,
                     setValue: () => {
                         const toValue = 30;
                         const fromValue = 0;
                         const val = Math.max(Math.min(MathUtils.map(scrollingSpeed, 20, 100, fromValue, toValue), toValue), fromValue)
-                        return this.renderedStyles.translationY.previous < docScroll ? val : -1*val;
+                        return this.renderedStyles.translationY.previous < docScroll ? val : -1 * val;
                     }
                 }
             };
@@ -253,9 +252,9 @@
         }
         update() {
             // sets the initial value (no interpolation) - translate the scroll value
-            for (const key in this.renderedStyles ) {
-                this.renderedStyles[key].current = this.renderedStyles[key].previous = this.renderedStyles[key].setValue();   
-            }   
+            for (const key in this.renderedStyles) {
+                this.renderedStyles[key].current = this.renderedStyles[key].previous = this.renderedStyles[key].setValue();
+            }
             // translate the scrollable element
             this.layout();
         }
@@ -284,33 +283,31 @@
             // Update lastScroll
             scrollingSpeed = Math.abs(docScroll - lastScroll);
             lastScroll = docScroll;
-            
+
             // update the current and interpolated values
-            for (const key in this.renderedStyles ) {
+            for (const key in this.renderedStyles) {
                 this.renderedStyles[key].current = this.renderedStyles[key].setValue();
-                this.renderedStyles[key].previous = MathUtils.lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].ease);    
+                this.renderedStyles[key].previous = MathUtils.lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].ease);
             }
             // and translate the scrollable element
             this.layout();
-            
+
             // for every item
             for (const item of this.items) {
                 // if the item is inside the viewport call it's render function
                 // this will update item's styles, based on the document scroll value and the item's position on the viewport
-                if ( item.isVisible ) {
-                    if ( item.insideViewport ) {
+                if (item.isVisible) {
+                    if (item.insideViewport) {
                         item.render();
-                    }
-                    else {
+                    } else {
                         item.insideViewport = true;
                         item.update();
                     }
-                }
-                else {
+                } else {
                     item.insideViewport = false;
                 }
             }
-            
+
             // loop..
             requestAnimationFrame(() => this.render());
         }
@@ -322,10 +319,10 @@
     // Preload images
     const preloadImages = () => {
         return new Promise((resolve, reject) => {
-            imagesLoaded(document.querySelectorAll('.content__item-img'), {background: true}, resolve);
+            imagesLoaded(document.querySelectorAll('.content__item-img'), { background: true }, resolve);
         });
     };
-    
+
     // And then..
     preloadImages().then(() => {
         // Remove the loader

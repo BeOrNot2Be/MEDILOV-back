@@ -1,5 +1,6 @@
-{% extends "./index.html" %}
-{% load static %}
+{% extends "index.html" %}
+{% load static%}
+{% load compress %}
 {% load custom_tags %}
 
 {% block title %}🎞️ | PORTFOLIO{% endblock %}
@@ -8,12 +9,16 @@
 {% endblock %}
 
 {% block style_injection_block %}
+	{% compress css %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/flickity.css" %}" />
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+    {% endcompress %}
 {% endblock %}
 
 {% block script_injection_upper_block %}
-	<script src="{% static "js/modernizr.custom.js" %}"></script>
+	{% compress js %}
+        <script src="{% static "js/modernizr.custom.js" %}"></script>
+    {% endcompress %}
 {% endblock %}
 
 {% block body %}
@@ -53,7 +58,9 @@
 {% endblock %}
 
 {% block script_injection_lower_block %}
+	{% compress js %}
 	<script src="{% static "js/flickity.pkgd.min.js" %}"></script>
-	<script src="{% static "js/smoothscroll.js" %}"></script>
-	<script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/smoothscroll.js" %}"></script>
+    {% endcompress %}
 {% endblock %}

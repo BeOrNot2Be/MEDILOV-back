@@ -1,16 +1,20 @@
-{% extends "./index.html" %}
-{% load static %}
+{% extends "index.html" %}
+{% load static%}
+{% load compress %}
 {% load custom_tags %}
 
 {% block title %}🎴 | ABOUT US{% endblock %}
 
 {% block aditional_metadata %}
+
 {% endblock %}
 
 {% block style_injection_block %}
-	<link rel="stylesheet" href="https://use.typekit.net/dec4mzz.css">
+	{% compress css %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/dec4mzz.css" %}" />
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
 	<link rel="stylesheet" type="text/css" href="{% static "css/base1.css" %}" />
+	{% endcompress %}
 {% endblock %}
 
 {% block script_injection_upper_block %}
@@ -57,7 +61,9 @@
 {% endblock %}
 
 {% block script_injection_lower_block %}
-	<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
-	<script src="{% static "js/TweenMax.min.js" %}"></script>
-	<script src="{% static "js/demo6.js" %}"></script>
+	{% compress js %}
+		<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
+		<script src="{% static "js/TweenMax.min.js" %}"></script>
+		<script src="{% static "js/demo6.js" %}"></script>
+	{% endcompress %}
 {% endblock %}

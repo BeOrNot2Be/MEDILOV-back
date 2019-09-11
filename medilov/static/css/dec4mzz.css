@@ -1,0 +1,35 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * ivymode:
+ *   - http://typekit.com/eulas/00000000000000003b9b33c9
+ *   - http://typekit.com/eulas/00000000000000003b9b33cd
+ *
+ * © 2009-2019 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2019-07-18 21:59:09 UTC"}*/
+
+@import url("https://p.typekit.net/p.css?s=1&k=dec4mzz&ht=tk&f=42534.42538&a=1494256&app=typekit&e=css");
+
+@font-face {
+    font-family : "ivymode";
+    src         : url("https://use.typekit.net/af/4aaea0/00000000000000003b9b33c9/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/4aaea0/00000000000000003b9b33c9/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/4aaea0/00000000000000003b9b33c9/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+    font-display: auto;
+    font-style  : normal;
+    font-weight : 400;
+}
+
+@font-face {
+    font-family : "ivymode";
+    src         : url("https://use.typekit.net/af/01f03d/00000000000000003b9b33cd/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/01f03d/00000000000000003b9b33cd/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/01f03d/00000000000000003b9b33cd/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+    font-display: auto;
+    font-style  : normal;
+    font-weight : 700;
+}
+
+.tk-ivymode {
+    font-family: "ivymode", sans-serif;
+}
