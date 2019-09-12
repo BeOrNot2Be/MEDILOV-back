@@ -1,0 +1,106 @@
+{% extends "index.html" %}
+{% load static %}
+{% load compress %}
+{% load custom_tags %}
+
+{% block title %} 📧 | Thank u for getting in touch{% endblock %}
+
+{% block aditional_metadata %}
+{% endblock %}
+
+{% block style_injection_block %}
+    {% compress css %}
+    <link rel="stylesheet"gvl type="text/css" href="{% static "css/all.min.css" %}" /> 
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-material-design.min.css" %}" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/header.css" %}"/>
+    {% endcompress %}
+{% endblock %}
+
+{% block script_injection_upper_block %}
+{% endblock %}
+
+{% block body %}
+<main class="main_container">
+    {% header "email" %}
+    <div style="height: 100px;"></div>
+    <div class="container">
+        <div class="wrapper light-wrapper">
+            <div class="container inner">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-sm-12">
+                        <div class="card text-white bg-dark" >
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <h3 class="card-title">Thank you for contacting us!</h3>
+                                </div>
+                                <div style="height: 30px;"></div> 
+                                <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <ul class="list-group list-group-flush">
+                                    <div class="list-group-item-action social-media-bar">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-facebook-square fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-instagram fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-pinterest-square fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-tumblr-square fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-adobe fa-3x"></i></a></div>
+                                            <div class="col-md-2 col-4 text-center"><a href="" class=" " ><i class="fab social-media-icon fa-youtube-square fa-3x"></i></a></div>
+                                            
+                                        </div>
+                                    </div>
+                                    <p class="list-group-item-action  list-group-item-dark text-center">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-5 col-sm-12">
+                                                <a href="mailto:maxcamer@medilov.com">
+                                                    <button class="button-action contact-button">
+                                                        <div class="circle">
+                                                            <div class="icon arrow">
+                                                                <div class="faicon">
+                                                                    <span class="fa-stack fa-lg">
+                                                                        <i class="fas backicon fa-circle fa-stack-2x"></i>
+                                                                        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                                                                    </span>
+                                                                </div>	
+                                                            </div>	
+                                                        </div>
+                                                        <p class="button-text"> maxcamer@medilov.com</p>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-5 col-sm-12">
+                                                <a href="tel:503-354-9699">
+                                                    <button class="button-action contact-button">
+                                                        <div class="circle">
+                                                            <div class="icon arrow">
+                                                                <div class="faicon">
+                                                                    <span class="fa-stack fa-lg">
+                                                                        <i class="fas backicon fa-circle fa-stack-2x"></i>
+                                                                        <i class="fas fa-phone fa-stack-1x fa-inverse"></i>
+                                                                    </span>
+                                                                </div>	
+                                                            </div>	
+                                                        </div>
+                                                        <p class="button-text">+1 503-354-9699</p>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block script_injection_lower_block %}
+    {% compress js%}
+    <script type="text/javascript" src="{% static "js/jquery-3.3.1.min.js" %}" ></script>
+    <script type="text/javascript" src="{% static "js/popper.js" %}" ></script>
+    <script type="text/javascript" src="{% static "js/bootstrap-material-design.js" %}"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    {% endcompress %}
+{% endblock %}

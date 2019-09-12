@@ -24,6 +24,11 @@ def ContactView(request):
         }
     return render(request, "contact.html", context)
 
+
+
+def EmailView(request):
+    return render(request, "email.html", {})
+
 def GalleriesView(request):
     
     context = {

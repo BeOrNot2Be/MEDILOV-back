@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+{% load static %}
+{% load compress %}
+{% load custom_tags %}
+
+{% block title %} | Page not found{% endblock %}
+
+{% block aditional_metadata %}
+{% endblock %}
+
+{% block style_injection_block %}
+    {% compress css %}
+    <link rel="stylesheet"gvl type="text/css" href="{% static "css/all.min.css" %}" /> 
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-material-design.min.css" %}" />
+    {% endcompress %}
+{% endblock %}
+
+{% block script_injection_upper_block %}
+{% endblock %}
+
+{% block body %}
+    {% header "404" %}
+    <style>
+    body {
+    min-height: 100vh;
+    }
+    #text{
+        position: absolute;
+        top: 50vh;
+    }
+    .social-media-icon {
+    background: -webkit-linear-gradient(#ef5350,#FF706E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
+    }
+    </style>
+    <div style="height: 100px;"></div>
+    <div class="container-fluid" id="text">
+        <div class="row justify-content-center">
+            <div class="col text-center">
+                <h1>Sorry, it seems that we don't have this page</h1>
+                <a href="" class=" "><i class="fab social-media-icon fa-instagram fa-3x"></i></a>
+            </div>
+        </div>    
+    </div>
+{% endblock %}
+
+{% block script_injection_lower_block %}
+    {% compress js%}
+    <script type="text/javascript" src="{% static "js/jquery-3.3.1.min.js" %}" ></script>
+    <script type="text/javascript" src="{% static "js/popper.js" %}" ></script>
+    <script type="text/javascript" src="{% static "js/bootstrap-material-design.js" %}"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    {% endcompress %}
+{% endblock %}  
