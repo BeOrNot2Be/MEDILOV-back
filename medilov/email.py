@@ -24,7 +24,7 @@ def send_appoitment_registration(to_email, data):
     '''
     
     datatuple = (
-        ('Subject', message_to_client, 'from@example.com', [to_email]),
-        ('Subject', message_to_websiteholder, 'from@example.com', [settings.WEBSITEHOLDEREMAIL]),
+        ('Subject', message_to_client, settings.EMAIL_HOST_USER, [to_email]),
+        ('Subject', message_to_websiteholder, settings.EMAIL_HOST_USER, [settings.WEBSITEHOLDEREMAIL]),
     )
-    send_website_email(datatuple)
+    send_mass_mail(datatuple)
