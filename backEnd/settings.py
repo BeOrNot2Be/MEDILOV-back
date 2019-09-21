@@ -63,7 +63,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backEnd.wsgi.application'
 
-
+#email 
+EMAIL_HOST = os.environ['SMTP_SERVER']
+EMAIL_HOST_USER = os.environ['SMTP_USER']
+EMAIL_HOST_PASSWORD = os.environ['SMTP_PASSWORD']
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 
 if 'DJANGO_DEBUG_FALSE' in os.environ:  
     DEBUG = False
@@ -79,13 +85,8 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
         }
     }
     WEBSITEHOLDEREMAIL = os.environ['WHEMAIL']
-    EMAIL_HOST = os.environ['SMTP_SERVER'],
-    EMAIL_PORT = os.environ['SMTP_PORT'],
-    EMAIL_HOST_USER = os.environ['SMTP_USER'],
-    EMAIL_PASSWORD = os.environ['SMTP_PASSWORD'],
-    EMAIL_USE_TLS = True
-    EMAIL_USE_SSL = False
-    #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_PORT = os.environ['SMTP_PORT']
+    
 else:
     DEBUG = True  
     SECRET_KEY = 'ctwj8_&w$vkw2ce&w+$c%8z$m6hpe4f8f8y^#h&_rt_o7na23u'
@@ -96,7 +97,8 @@ else:
             'NAME': 'medilov',
         }
     }
-    WEBSITEHOLDEREMAIL = "example@gmail.com"
+    WEBSITEHOLDEREMAIL = "admin@avilonproduction.com"
+    EMAIL_PORT = 465
 
 
 if DEBUG != True:
@@ -132,9 +134,6 @@ if DEBUG != True:
             },
         }
     }
-
-
-    #EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 
