@@ -88,7 +88,7 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     EMAIL_PORT = os.environ['SMTP_PORT']
     
 else:
-    DEBUG = True  
+    DEBUG = False  
     SECRET_KEY = 'ctwj8_&w$vkw2ce&w+$c%8z$m6hpe4f8f8y^#h&_rt_o7na23u'
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '*']
     DATABASES = {
@@ -99,43 +99,6 @@ else:
     }
     WEBSITEHOLDEREMAIL = "admin@avilonproduction.com"
     EMAIL_PORT = 465
-
-
-if DEBUG != True:
-    LOGGING = {
-        'version': 1,
-        'disable_existing_loggers': False,
-        'formatters': {
-            'verbose': {
-                'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-                'datefmt' : "%d/%b/%Y %H:%M:%S"
-            },
-            'simple': {
-                'format': '%(levelname)s %(message)s'
-            },
-        },
-        'handlers': {
-            'file': {
-                'level': 'DEBUG',
-                'class': 'logging.FileHandler',
-                'filename': 'mysite.log',
-                'formatter': 'verbose'
-            },
-        },
-        'loggers': {
-            'django': {
-                'handlers':['file'],
-                'propagate': True,
-                'level':'DEBUG',
-            },
-            'MYAPP': {
-                'handlers': ['file'],
-                'level': 'DEBUG',
-            },
-        }
-    }
-
-
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -175,7 +138,6 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder'
 ]
 
-PREMAILER_OPTIONS = dict(base_url='http://avilonproduction.com', remove_classes=False)
 
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
@@ -192,3 +154,31 @@ COMPRESS_JS_FILTERS = [
 TEMPLATES_URL = '/templates/'
 
 django_heroku.settings(locals())
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }   
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'ERROR',
+        },
+    },
+}
