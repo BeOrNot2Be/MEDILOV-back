@@ -175,6 +175,7 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder'
 ]
 
+PREMAILER_OPTIONS = dict(base_url='http://avilonproduction.com', remove_classes=False)
 
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True

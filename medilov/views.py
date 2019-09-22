@@ -11,19 +11,23 @@ def ContactView(request):
         if form.is_valid():
             email_data = {
                 'name':form.cleaned_data['form_name'],
-                'phonenumber':form.cleaned_data['form_phone'],
+                'phone':form.cleaned_data['form_phone'],
                 'dates':f"from {form.cleaned_data['datepicker_start']} to {form.cleaned_data['datepicker_end']}",
                 'description':form.cleaned_data['form_orderdescription'],
                 'job':form.cleaned_data['form_service'],
+                'email':form.cleaned_data['form_email']
             }
-            send_appoitment_registration(form.cleaned_data['form_email'], email_data)
+            send_appoitment_registration(email_data)
+            '''if 
+                return render(request, "contact.html", {})
+            else:
+                return render(request, "contact.html", {})'''           
         else:
             print("not valid...")#DEVELOPMENT
     context = {
         "services": Service.objects.all()
         }
     return render(request, "contact.html", context)
-
 
 
 def EmailView(request):
