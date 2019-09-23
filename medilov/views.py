@@ -6,6 +6,11 @@ from .email import send_appoitment_registration
 
 
 def ContactView(request):
+    context = {
+        "services": Service.objects.all(),
+        "email": None,
+        "sent":None
+        }
     if request.method == 'POST':
         form = NameForm(request.POST)
         if form.is_valid():
@@ -17,16 +22,15 @@ def ContactView(request):
                 'job':form.cleaned_data['form_service'],
                 'email':form.cleaned_data['form_email']
             }
-            send_appoitment_registration(email_data)
-            '''if 
-                return render(request, "contact.html", {})
+            context['email'] = email_data['email']
+            if send_appoitment_registration(email_data):
+                context['sent'] = True 
+                return render(request, "contact.html", context)
             else:
-                return render(request, "contact.html", {})'''           
+                context['sent'] = False
+                return render(request, "contact.html", context)
         else:
             print("not valid...")#DEVELOPMENT
-    context = {
-        "services": Service.objects.all()
-        }
     return render(request, "contact.html", context)
 
 

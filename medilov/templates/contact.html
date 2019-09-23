@@ -28,6 +28,22 @@
 <main class="main_container">
     {% header "contacts" %}
     <div style="height: 100px;"></div>
+
+    <div class="modal fade" id="AlertModal" tabindex="-1" role="dialog" aria-labelledby="AlertModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color:transparent;box-shadow:none;">
+        <div class="modal-body">
+            <div class="alert fade show" role="alert" style="box-shadow: 0 0.5rem 1rem rgba(0,0,0,.5);">
+                <span id="alertText"></span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>        
+
     <div class="container">
         <div class="wrapper light-wrapper">
             <div class="container inner">
@@ -195,9 +211,25 @@
 
 {% block script_injection_lower_block %}
     {% compress js%}
-    <script type="text/javascript" src="{% static "js/jquery-3.3.1.min.js" %}" ></script>
-    <script type="text/javascript" src="{% static "js/popper.js" %}" ></script>
-    <script type="text/javascript" src="{% static "js/bootstrap-material-design.js" %}"></script>
-    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+        <script type="text/javascript" src="{% static "js/jquery-3.3.1.min.js" %}" ></script>
+        <script type="text/javascript" src="{% static "js/popper.js" %}" ></script>
+        <script type="text/javascript" src="{% static "js/bootstrap-material-design.js" %}"></script>
+        <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
     {% endcompress %}
+    <script>
+    if ("{{sent}}"==="True"){
+        $('#alertText').text("Email have successfully been sent to email {{email}} !")
+        $('.alert').addClass('alert-success')
+        $('#AlertModal').modal({
+            keyboard: false
+        })
+    }
+    if ("{{sent}}"==="False"){
+        $('#alertText').text("Email have`t been sent to email {{email}}. Check your data and try again later")
+        $('.alert').addClass('alert-danger')
+        $('#AlertModal').modal({
+            keyboard: false
+        })
+    }   
+    </script>
 {% endblock %}

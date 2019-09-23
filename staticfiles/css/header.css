@@ -180,3 +180,7 @@ body {
 .input-group-text {
     color: #bbbdcab7;
 }
+
+select option {
+    background: #212121;
+}
