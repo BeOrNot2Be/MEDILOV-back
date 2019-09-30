@@ -66,13 +66,13 @@
 }
 
 .hero>div {
-	/*background               : #212121 url(../img/bg.jpg) no-repeat 50% 0;*/
+	/*background               : #212121 url(https://res.cloudinary.com/avilonproductioncdn/image/upload/v1569841170/avatar_image_wnnzl7.jpg) no-repeat 50% 0;*/
 	-webkit-backface-visibility: hidden;
 	backface-visibility        : hidden;
 	backface-visibility        : hidden;
 	background-size            : cover;
 	/* background-color        : black; */
-	background-image           : url(../img/bg.jpg);
+	background-image           : url(https://res.cloudinary.com/avilonproductioncdn/image/upload/v1569841170/avatar_image_wnnzl7.jpg);
 	background-repeat          : no-repeat;
 	background-position        : 50% 0;
 	background-color           : #212121;
