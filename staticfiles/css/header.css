@@ -182,5 +182,38 @@ body {
 }
 
 select option {
-    background: #212121;
+    background: #383838;
+    color: #9092a5b7;
+}
+
+select option:selected{
+    background: #383838;
+    color: #9092a5b7;  
+}
+
+.gj-picker{
+    background-color: #373737;
+    border-radius: 5px;   
+    border: 1px solid #373737
+}
+
+.gj-picker div[role=navigator] div[role=period]{
+    color: #fc6764;
+}
+
+.gj-picker-md table tr td div, .gj-picker-md table tr th div{
+    color: #9092a5b7;  
+}
+.gj-picker-md table tr th div{
+    color: #ccc;
+}
+
+.gj-picker-md table tr td.gj-cursor-pointer div:hover{
+    background: -webkit-linear-gradient(0deg, #ef5350 30%, #fc9842 100%);
+    color: #ccc;
+    font-weight: bold; 
+}
+.gj-picker-md table tr td.today div{
+    color: #4FF082;
+    font-weight: bold;
 }
