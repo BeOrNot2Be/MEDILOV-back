@@ -248,7 +248,7 @@ body {
 	pointer-events: none;
 	opacity       : 0.4;
 	animation     : loaderAnim 0.7s linear infinite alternate forwards;
-	background    : url("/static/img/three-dots.fda955217fba.svg");
+	background    : url("/static/img/three-dots.7627bc820cce.svg");
 }
 
 @keyframes loaderAnim {

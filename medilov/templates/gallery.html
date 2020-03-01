@@ -3,14 +3,15 @@
 
 <!DOCTYPE HTML>
 <html>
-	<head>
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
+<head>
+
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
@@ -25,10 +26,10 @@
 	<link rel="mask-icon" href="{% static "/safari-pinned-tab.svg" %}" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
-	
+
 	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<!-- <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet"> -->
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{% static "css/animate.css" %}">
 	<!-- Icomoon Icon Fonts-->
@@ -48,71 +49,80 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-	</head>
-	<body style="min-height: 100vh;">
-		<svg class="hidden">
-			<symbol id="icon-longarrow" viewBox="0 0 54 24">
-				<title>longarrow</title>
-				<path d="M.42 11.158L12.38.256c.333-.27.696-.322 1.09-.155.395.166.593.467.593.903v6.977h38.87c.29 0 .53.093.716.28.187.187.28.426.28.716v5.98c0 .29-.093.53-.28.716a.971.971 0 0 1-.716.28h-38.87v6.977c0 .416-.199.717-.592.903-.395.167-.759.104-1.09-.186L.42 12.62a1.018 1.018 0 0 1 0-1.462z" />
-			</symbol>
-		</svg>
-	
+</head>
+
+<body style="min-height: 100vh;">
+	<svg class="hidden">
+		<symbol id="icon-longarrow" viewBox="0 0 54 24">
+			<title>longarrow</title>
+			<path
+				d="M.42 11.158L12.38.256c.333-.27.696-.322 1.09-.155.395.166.593.467.593.903v6.977h38.87c.29 0 .53.093.716.28.187.187.28.426.28.716v5.98c0 .29-.093.53-.28.716a.971.971 0 0 1-.716.28h-38.87v6.977c0 .416-.199.717-.592.903-.395.167-.759.104-1.09-.186L.42 12.62a1.018 1.018 0 0 1 0-1.462z" />
+		</symbol>
+	</svg>
+
 
 	<div id="fh5co-page">
-	<header>
-		<nav>
-			<button class="content__close" onclick="window.history.back()">
-				<svg class="icon icon--longarrow">
-					<use xlink:href="#icon-longarrow"></use>
-				</svg> 
-				<span>
-					Back
-				</span> 
-			</button>
-		</nav>
-	</header>
-	<div class="grid-container">
-		<div class="container-fluid" id="fh5co-image-grid">
-            <div class="grid">
-            <div class="grid-sizer"></div>
-                {% for video in gallery.videos.all %}
-					<div class="grid-item item animate-box" data-animate-effect="fadeIn">
-                            <a href="{{video.url}}" class="popup-youtube" title="smth">
-								<div class="img-wrap">
-                                    <img src="{{video.preview}}" alt="{{video.title}}" class="img-responsive">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="text-inner popup">
-                                        <div>
-                                            <h2>Play video</h2>
-                                        </div>
-                                    </div>
-                                </div>                          
-							</a>
-                    </div>
-				{% endfor %}
-				{% for img in gallery.photos.all %}
-                    <div class="grid-item item animate-box" data-animate-effect="fadeIn">
-                            <a href="{{img.url}}" class="image-popup" title="{{img.title}}">
-                                <div class="img-wrap">
-                                    <img src="{{img.url}}" alt="{{img.title}}" class="img-responsive">
-                                </div>
-                                <div class="text-wrap">
-                                    <div class="text-inner popup">
-                                        <div>
-                                            <h2>{{img.title}}</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                    </div>
-                {% endfor %}
-            </div>
+		<header>
+			<nav>
+				<button class="content__close" onclick="window.history.back()">
+					<svg class="icon icon--longarrow">
+						<use xlink:href="#icon-longarrow"></use>
+					</svg>
+					<span>
+						Back
+					</span>
+				</button>
+			</nav>
+		</header>
+		<div class="grid-container">
+			<div class="container-fluid" id="fh5co-image-grid">
+				<div class="grid">
+					<div class="grid-sizer"></div>
+					{% for video in videos %}
+					<div class="grid-item item" data-animate-effect="fadeIn">
+						<a href="{{video.url}}" class="popup-youtube" title="smth">
+							<div class="img-wrap">
+								<img src="{{video.preview}}" alt="{{video.title}}" class="img-responsive">
+							</div>
+							<div class="text-wrap">
+								<div class="text-inner popup">
+									<div>
+										<h2>Play video</h2>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+					{% for img in photos|slice:":10" %}
+					<div class="grid-item item" data-animate-effect="fadeIn">
+						<a href="{{img.url|slice:":60"}}w_0.8{{img.url|slice:"59:"}}" class="image-popup"
+							title="{{img.title}}">
+							<div class="img-wrap">
+								<img src='{{img.url|slice:":60"}}w_400,f_auto,q_auto:good{{img.url|slice:"59:"}}' sizes="(max-width: 480px) 50vw,
+										   (max-width: 1200px) 33vw,
+										   25vw" srcset='{{img.url|slice:":60"}}w_200,f_auto,q_auto:good{{img.url|slice:"59:"}} 200w,
+										{{img.url|slice:":60"}}w_300,f_auto,q_auto:good{{img.url|slice:"59:"}} 300w,
+										{{img.url|slice:":60"}}w_400,f_auto,q_auto:good{{img.url|slice:"59:"}} 400w,
+										{{img.url|slice:":60"}}w_500,f_auto,q_auto:good{{img.url|slice:"59:"}} 500w,
+										{{img.url|slice:":60"}}w_600,f_auto,q_auto:good{{img.url|slice:"59:"}} 600w,
+										{{img.url|slice:":60"}}w_800,f_auto,q_auto:good{{img.url|slice:"59:"}} 800w' alt="{{img.title}}" class="img-responsive">
+							</div>
+							<div class="text-wrap">
+								<div class="text-inner popup">
+									<div>
+										<h2>{{img.title}}</h2>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
 		</div>
 	</div>
 
-	</div>
-	
 	<!-- jQuery -->
 	<script src="{% static "js/jquery.min.js" %}"></script>
 	<!-- jQuery Easing -->
@@ -124,7 +134,7 @@
 
 	<!-- Magnific -->
 	<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
-	<script src="{% static "js/magnific-popup-options.js" %}"></script>
+	{% comment %} <script src="{% static "js/magnific-popup-options.js" %}"></script> {% endcomment %}
 	<!-- Isotope & imagesLoaded -->
 	<script src="{% static "js/isotope.pkgd.min.js" %}"></script>
 	<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
@@ -134,8 +144,216 @@
 	<script src="{% static "js/EasePack.min.js" %}"></script>
 
 	<!-- MAIN JS -->
-	<script src="{% static "js/mainSingle.js" %}"></script>
+	{% comment %} <script src="{% static "js/mainSingle.js" %}"></script> {% endcomment %}
 
-	</body>
+	<script>
+
+	var magnifPopup = function() {
+		$('.image-popup').magnificPopup({
+			autoFocusLast: 'false',
+			type: 'image',
+			mainClass: 'mfp-with-zoom',
+			gallery: {
+				enabled: true
+			},
+			zoom: {
+				enabled: true,
+				duration: 500,
+				easing: 'ease-in-out',
+			}
+		});
+	};
+
+	var magnifVideo = function() {
+		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
+
+			fixedContentPos: false
+		});
+	};
+
+	var $grid = $(".grid").isotope({
+		itemSelector: ".grid-item",
+		percentPosition: true,
+		masonry: {
+			columnWidth: ".grid-sizer"
+		}
+	});
+
+	(function() {
+		"use strict";
+
+		var isMobile = {
+			Android: function() {
+			return navigator.userAgent.match(/Android/i);
+			},
+			BlackBerry: function() {
+			return navigator.userAgent.match(/BlackBerry/i);
+			},
+			iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+			},
+			Opera: function() {
+			return navigator.userAgent.match(/Opera Mini/i);
+			},
+			Windows: function() {
+			return navigator.userAgent.match(/IEMobile/i);
+			},
+			any: function() {
+			return (
+				isMobile.Android() ||
+				isMobile.BlackBerry() ||
+				isMobile.iOS() ||
+				isMobile.Opera() ||
+				isMobile.Windows()
+			);
+			}
+		};
+
+		var contentWayPoint = function() {
+			var i = 0;
+			$(".animate-box").waypoint(
+			function(direction) {
+				if (
+				direction === "down" &&
+				!$(this.element).hasClass("animated-fast")
+				) {
+				i++;
+
+				$(this.element).addClass("item-animate");
+				setTimeout(function() {
+					$("body .animate-box.item-animate").each(function(k) {
+					var el = $(this);
+					setTimeout(
+						function() {
+						var effect = el.data("animate-effect");
+						if (effect === "fadeIn") {
+							el.addClass("fadeIn animated-fast");
+						} else if (effect === "fadeInLeft") {
+							el.addClass("fadeInLeft animated-fast");
+						} else if (effect === "fadeInRight") {
+							el.addClass("fadeInRight animated-fast");
+						} else {
+							el.addClass("fadeInUp animated-fast");
+						}
+
+						el.removeClass("item-animate");
+						},
+						k * 50,
+						"easeInOutExpo"
+					);
+					});
+				}, 50);
+				}
+			},
+			{ offset: "90%" }
+			);
+		};
+
+		var isotopeImageLoaded = function() {
+
+			$grid.imagesLoaded().progress(function() {
+			$grid.isotope("layout");
+			});
+		};
+
+		$(function() {
+			contentWayPoint();
+			isotopeImageLoaded();
+		});
+	})();
+
+	$(document).ready(function() {
+		magnifPopup();
+		magnifVideo();
+	});
+
+		const images = [
+			{% for photo in photos|slice:"9:" %}
+				{
+					name: '{{photo.title}}',
+					url1: '{{photo.url|slice:":60"}}',
+					url2: '{{photo.url|slice:"59:"}}'
+				},
+			{% endfor %}
+		]
+
+		let elemImgs = [];
+		function fetchImgs (startIndex, endIndex) {
+			for (const img of images.slice(startIndex,endIndex)) {
+			elemImgs.push($(`<div class="grid-item item" data-animate-effect="fadeIn">
+						<a href="${img.url1}w_0.8${img.url2}" class="image-popup"
+							title="${img.name}">
+							<div class="img-wrap">
+								<img src='${img.url1}w_400,f_auto,q_auto:good${img.url2}' sizes="(max-width: 992px) 50vw,
+										   (max-width: 1200px) 33vw,
+										   25vw" srcset='${img.url1}w_200,f_auto,q_auto:good${img.url2} 200w,
+										${img.url1}w_300,f_auto,q_auto:good${img.url2} 300w,
+										${img.url1}w_400,f_auto,q_auto:good${img.url2} 400w,
+										${img.url1}w_500,f_auto,q_auto:good${img.url2} 500w,
+										${img.url1}w_600,f_auto,q_auto:good${img.url2} 600w,
+										${img.url1}w_800,f_auto,q_auto:good${img.url2} 800w' alt="${img.name}" class="img-responsive">
+							</div>
+							<div class="text-wrap">
+								<div class="text-inner popup">
+									<div>
+										<h2>${img.name}</h2>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>`))
+			}
+		}
+		fetchImgs(0, 20);
+
+		var imageIndexStart = 0,
+			imageIndexEnd = 10,
+			loadingImages = false;
+		
+		function InitPhotoes ( ) {
+			if ($(window).height() === $(document).height()) {
+				loadingImages = true;
+				for (let imageIndex = imageIndexStart; imageIndex < imageIndexEnd && imageIndex < elemImgs.length; imageIndex++) {
+					$grid.append( elemImgs[imageIndex] )
+						.isotope( 'appended', elemImgs[imageIndex] )
+						.isotope('layout');
+				}
+				imageIndexStart += 10;
+				imageIndexEnd += 10;
+				fetchImgs(imageIndexStart, imageIndexEnd);
+				magnifPopup();
+				setTimeout(() => {loadingImages = false; InitPhotoes()}, 800);
+			}
+		}
+		function addPhotoesOnScroll() {
+			if($(window).scrollTop() + $(window).height() > $(document).height() - 100 && !loadingImages) {
+				if (imageIndexStart < elemImgs.length) {
+					loadingImages = true;
+					for (let imageIndex = imageIndexStart; imageIndex < imageIndexEnd && imageIndex < elemImgs.length; imageIndex++) {
+						$grid.append( elemImgs[imageIndex] )
+							.isotope( 'appended', elemImgs[imageIndex] )
+							.isotope('layout');
+					}
+					imageIndexStart += 10;
+					imageIndexEnd += 10;
+					fetchImgs(imageIndexStart, imageIndexEnd);
+					magnifPopup();
+					setTimeout(() => {loadingImages = false; addPhotoesOnScroll()}, 1000);
+				}
+			}
+		}
+		
+		InitPhotoes()
+
+		$(window).scroll(addPhotoesOnScroll);
+
+
+	</script>
+</body>
+
 </html>
-
