@@ -3,6 +3,7 @@
 
 <!DOCTYPE HTML>
 <html>
+<<<<<<< HEAD
 
 <head>
 
@@ -12,6 +13,17 @@
 	<meta property="og:url" content="" />
 	<meta property="og:site_name" content="" />
 	<meta property="og:description" content="" />
+=======
+	<head>
+	<title>Avilon | Gallery</title>
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+>>>>>>> 73e513070b5c6bfc22d1dd4e64951a1d7d512c01
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
@@ -19,15 +31,16 @@
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="{% static "favicon.ico" %}">
-	<link rel="apple-touch-icon" sizes="180x180" href="{% static "/apple-touch-icon.png" %}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{% static "/favicon-32x32.png" %}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{% static "/favicon-16x16.png" %}">
-	<link rel="manifest" href="{% static "/site.webmanifest" %}">
-	<link rel="mask-icon" href="{% static "/safari-pinned-tab.svg" %}" color="#5bbad5">
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static "apple-touch-icon.png" %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static "favicon-32x32.png" %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static "favicon-16x16.png" %}">
+	<link rel="manifest" href="{% static "site.webmanifest" %}">
+	<link rel="mask-icon" href="{% static "safari-pinned-tab.svg" %}" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
 
 	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<<<<<<< HEAD
 	<!-- <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet"> -->
 
 	<!-- Animate.css -->
@@ -38,12 +51,20 @@
 	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="{% static "css/style.css" %}">
+=======
+	
+	{% compress css %}
+		<link rel="stylesheet" href="{% static "css/animate.css" %}">
+		<link rel="stylesheet" href="{% static "css/icomoon.css" %}">
+		<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+		<link rel="stylesheet" href="{% static "css/style.css" %}">
+		<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+	{% endcompress %}
+>>>>>>> 73e513070b5c6bfc22d1dd4e64951a1d7d512c01
 
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
-
-	<!-- Modernizr JS -->
-	<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+	{% compress js %}
+		<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
+	{% endcompress %}
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -123,6 +144,7 @@
 		</div>
 	</div>
 
+<<<<<<< HEAD
 	<!-- jQuery -->
 	<script src="{% static "js/jquery.min.js" %}"></script>
 	<!-- jQuery Easing -->
@@ -352,6 +374,24 @@
 
 		$(window).scroll(addPhotoesOnScroll);
 
+=======
+	</div>
+
+	{% compress js %}
+		<script src="{% static "js/jquery.min.js" %}"></script>
+		<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
+		<script src="{% static "js/bootstrap.min.js" %}"></script>
+		<script src="{% static "js/jquery.waypoints.min.js" %}"></script>
+		<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+		<script src="{% static "js/magnific-popup-options.js" %}"></script>
+		<script src="{% static "js/isotope.pkgd.min.js" %}"></script>
+		<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
+		<script src="{% static "js/TweenLite.min.js" %}"></script>
+		<script src="{% static "js/CSSPlugin.min.js" %}"></script>
+		<script src="{% static "js/EasePack.min.js" %}"></script>
+		<script src="{% static "js/mainSingle.js" %}"></script>
+	{% endcompress %}
+>>>>>>> 73e513070b5c6bfc22d1dd4e64951a1d7d512c01
 
 	</script>
 </body>

@@ -88,7 +88,7 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     EMAIL_PORT = os.environ['SMTP_PORT']
     
 else:
-    DEBUG = True  
+    DEBUG = False  
     SECRET_KEY = 'ctwj8_&w$vkw2ce&w+$c%8z$m6hpe4f8f8y^#h&_rt_o7na23u'
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '*']
     DATABASES = {
@@ -155,7 +155,6 @@ TEMPLATES_URL = '/templates/'
 
 django_heroku.settings(locals())
 
-'''
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -182,4 +181,4 @@ LOGGING = {
             'level': 'ERROR',
         },
     },
-}'''
+}
