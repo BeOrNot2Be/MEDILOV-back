@@ -567,3 +567,47 @@ figure {
   margin: 0;
   padding: 0;
 }
+
+@media screen and (max-width: 992px) {
+  .content__close {
+    position: relative;
+    font-size: 2em;
+    display: inline;
+    float: left;
+    padding-left: 5px;
+    font-weight: 700;
+  }
+
+  .icon--longarrow {
+    width: 5rem;
+    display: inline-block;
+    padding-top: 22px;
+  }
+
+  .grid-container {
+    padding-top: 0px;
+  }
+
+  .mfp-zoom-out-cur,
+  .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+    font-size: 4em;
+    top: 0px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content__close {
+    font-size: 3em;
+  }
+
+  .icon--longarrow {
+    width: 7rem;
+    padding-top: 36px;
+  }
+
+  .mfp-zoom-out-cur,
+  .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+    font-size: 8em;
+    top: -30px;
+  }
+}
