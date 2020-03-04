@@ -194,7 +194,7 @@
     {% endcompress %}
     <script>
     if ("{{sent}}"==="True"){
-        $('#alertText').text("Email have successfully been sent to email {{email}} !")
+        $('#alertText').text("Email have successfully been sent to email {{email}} ! (If you don't see it, check the spam)")
         $('.alert').addClass('alert-success')
         $('#AlertModal').modal({
             keyboard: false
