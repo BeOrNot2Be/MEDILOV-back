@@ -53,11 +53,14 @@ def GalleryView(request, gallery_id):
     return render(request, "gallery.html", context)
 
 def ServiceView(request):
-
     context = {
-        "services": Service.objects.all()
+            "services": Service.objects.all()
         }
-    return render(request, "services.html", context)
+
+    if request.user_agent.is_mobile:
+        return render(request, "services_mobile.html", context)
+    else:
+        return render(request, "services.html", context)
 
 def AboutView(request):
 

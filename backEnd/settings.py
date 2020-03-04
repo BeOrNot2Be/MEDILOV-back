@@ -28,7 +28,18 @@ INSTALLED_APPS = [
     'jet.dashboard',
     'jet',
     'django.contrib.admin',
+    'django_user_agents',
 ]
+
+USER_AGENTS_CACHE = 'default'
+
+
+ACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
 
 JET_DEFAULT_THEME = 'default'
 
@@ -41,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'backEnd.urls'
