@@ -34,7 +34,7 @@
 					{% for unit in units %}
 						<div class="content__item">
 							<div class="content__item-imgwrap">
-								<div class="content__item-img" style="background-image: url({{unit.url}});"></div>
+								<div class="content__item-img" style="background-image: url({{unit.url|slice:":60"}}w_1000,f_auto,q_auto:good{{unit.url|slice:"59:"}});"></div>
 							</div>
 							<h2 class="content__item-title">{{unit.phrase}}</h2>
 							<p class="content__item-description">{{unit.short_description}}</p>

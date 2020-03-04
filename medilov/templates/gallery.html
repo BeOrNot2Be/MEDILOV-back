@@ -6,6 +6,8 @@
 
 <head>
 	<title>Avilon | Gallery</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0">
 
 	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="" />
@@ -98,7 +100,7 @@
 					{% endfor %}
 					{% for img in photos|slice:":10" %}
 					<div class="grid-item item" data-animate-effect="fadeIn">
-						<a href="{{img.url|slice:":60"}}w_0.8{{img.url|slice:"59:"}}" class="image-popup"
+						<a href="{{img.url|slice:":60"}}w_1000,f_auto,q_auto{{img.url|slice:"59:"}}" class="image-popup"
 							title="{{img.title}}">
 							<div class="img-wrap">
 								<img src='{{img.url|slice:":60"}}w_400,f_auto,q_auto:good{{img.url|slice:"59:"}}' sizes="(max-width: 480px) 50vw,
@@ -155,7 +157,13 @@
 		$('.image-popup').magnificPopup({
 			autoFocusLast: 'false',
 			type: 'image',
-			mainClass: 'mfp-with-zoom',
+			closeOnContentClick: true,
+			closeBtnInside: false,
+			fixedContentPos: true,
+			image: {
+				verticalFit: true
+			},
+			mainClass: 'mfp-no-margins mfp-img-mobile',
 			gallery: {
 				enabled: true
 			},
@@ -284,7 +292,7 @@
 		function fetchImgs (startIndex, endIndex) {
 			for (const img of images.slice(startIndex,endIndex)) {
 			elemImgs.push($(`<div class="grid-item item" data-animate-effect="fadeIn">
-						<a href="${img.url1}w_0.8${img.url2}" class="image-popup"
+						<a href="${img.url1}w_1000,f_auto,q_auto${img.url2}" class="image-popup"
 							title="${img.name}">
 							<div class="img-wrap">
 								<img src='${img.url1}w_400,f_auto,q_auto:good${img.url2}' sizes="(max-width: 992px) 50vw,

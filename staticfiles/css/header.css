@@ -1,219 +1,234 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+/** @format */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400, 700);
 
 /* Fonts & icons */
 
 @font-face {
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'codropsicons';
-    src: url("../fonts/codropsicons/codropsicons.eot");
-    src: url("../fonts/codropsicons/codropsicons.eot?#iefix") format("embedded-opentype"), url("../fonts/codropsicons/codropsicons.woff") format("woff"), url("../fonts/codropsicons/codropsicons.ttf") format("truetype"), url("../fonts/codropsicons/codropsicons.svg#codropsicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-family: "codropsicons";
+  src: url("../fonts/codropsicons/codropsicons.eot");
+  src: url("../fonts/codropsicons/codropsicons.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/codropsicons/codropsicons.woff") format("woff"),
+    url("../fonts/codropsicons/codropsicons.ttf") format("truetype"),
+    url("../fonts/codropsicons/codropsicons.svg#codropsicons") format("svg");
 }
 
 @font-face {
-    font-family: 'camera-icons';
-    src: url('../fonts/camera-icons/camera-icons.eot?7h6q4p');
-    src: url('../fonts/camera-icons/camera-icons.eot?#iefix7h6q4p') format('embedded-opentype'), url('../fonts/camera-icons/camera-icons.woff?7h6q4p') format('woff'), url('../fonts/camera-icons/camera-icons.ttf?7h6q4p') format('truetype'), url('../fonts/camera-icons/camera-icons.svg?7h6q4p#camera-icons') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "camera-icons";
+  src: url("../fonts/camera-icons/camera-icons.eot?7h6q4p");
+  src: url("../fonts/camera-icons/camera-icons.eot?#iefix7h6q4p")
+      format("embedded-opentype"),
+    url("../fonts/camera-icons/camera-icons.woff?7h6q4p") format("woff"),
+    url("../fonts/camera-icons/camera-icons.ttf?7h6q4p") format("truetype"),
+    url("../fonts/camera-icons/camera-icons.svg?7h6q4p#camera-icons")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .main_container {
-    position: relative;
-    min-height: 100vh;
-    height: 100%;
-    overflow: hidden;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .social-media-bar {
-    margin-top: 0;
-    margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .social-media-icon {
-    background: -webkit-linear-gradient(#ef5350, #FF706E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 10px 0;
+  background: -webkit-linear-gradient(#ef5350, #ff706e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 10px 0;
 }
 
 .social-media-icon:hover {
-    background: -webkit-linear-gradient(#FF706E, #ef5350);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(#ff706e, #ef5350);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .button-action {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    outline: none;
-    border: 0;
-    vertical-align: middle;
-    text-decoration: none;
-    background: transparent;
-    padding: 0;
-    font-size: inherit;
-    font-family: inherit;
-    font-weight: 700;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 700;
 }
 
 .button-action.contact-button {
-    min-width: 14rem;
-    height: auto;
-    margin: auto;
-    margin-top: 1rem;
-    width: 100%;
+  min-width: 14rem;
+  height: auto;
+  margin: auto;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .button-action.send-button {
-    min-width: 8rem;
-    width: auto;
+  min-width: 8rem;
+  width: auto;
 }
 
 .button-action.contact-button .circle {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-    position: relative;
-    margin: 0;
-    width: 3rem;
-    height: 3rem;
-    background: rgba(255, 255, 255, 0.719);
-    ;
-    border-radius: 1.625rem;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.719);
+  border-radius: 1.625rem;
 }
 
 .button-action.contact-button .circle .icon {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 
 .button-action.contact-button .circle .icon.arrow {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-    background: none;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  background: none;
 }
 
 .button-action.contact-button .circle .icon.arrow .faicon {
-    padding-top: 6px;
-    padding-left: 0.5px;
+  padding-top: 6px;
+  padding-left: 0.5px;
 }
 
 .button-action.contact-button .button-text {
-    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0.75rem 0;
-    margin: 0 0 0 1.85rem;
-    color: #fff;
-    line-height: 1.6;
-    text-align: center;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #fff;
+  line-height: 1.6;
+  text-align: center;
 }
 
 .button-action:hover .circle {
-    width: 100%;
+  width: 100%;
 }
 
 .button-action:hover .circle .icon.arrow .faicon span .backicon {
-    background: -webkit-linear-gradient(#4FF082, #15A342);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(#4ff082, #15a342);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .backicon {
-    background: -webkit-linear-gradient(#212121, #424242);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(#212121, #424242);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .sendicon {
-    background: -webkit-linear-gradient(#ee5957, #ef9850);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: -webkit-linear-gradient(#ee5957, #ef9850);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .button-action:hover .button-text {
-    color: #ef5350;
+  color: #ef5350;
 }
 
 .card {
-    background: linear-gradient(145deg, #141414 0%, #424242 75%, #5d5b5b 100%);
+  background: linear-gradient(145deg, #141414 0%, #424242 75%, #5d5b5b 100%);
 }
 
 body {
-    background-color: #212121!important;
-    background-image: url(https://www.transparenttextures.com/patterns/stardust.png)!important;
+  background-color: #212121 !important;
+  background-image: url(https://www.transparenttextures.com/patterns/stardust.png) !important;
 }
 
 .list-group-item-action:hover {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .form-control {
-    color: #9092a5b7;
+  color: #9092a5b7;
 }
 
 .bmd-label-static {
-    color: rgba(255, 255, 255, 0.719);
+  color: rgba(255, 255, 255, 0.719);
 }
 
 .gj-textbox-md {
-    padding: 8px 0 4px 0;
+  padding: 8px 0 4px 0;
 }
 
 .gj-icon {
-    top: 5px !important;
-    color: #bbbdcab7;
+  top: 5px !important;
+  color: #bbbdcab7;
 }
 
 .input-group-text {
-    color: #bbbdcab7;
+  color: #bbbdcab7;
 }
 
 select option {
-    background: #383838;
-    color: #9092a5b7;
+  background: #383838;
+  color: #9092a5b7;
 }
 
-select option:selected{
-    background: #383838;
-    color: #9092a5b7;  
+select option:selected {
+  background: #383838;
+  color: #9092a5b7;
 }
 
-.gj-picker{
-    background-color: #373737;
-    border-radius: 5px;   
-    border: 1px solid #373737
+.gj-picker {
+  background-color: #373737;
+  border-radius: 5px;
+  border: 1px solid #373737;
 }
 
-.gj-picker div[role=navigator] div[role=period]{
-    color: #fc6764;
+.gj-picker div[role="navigator"] div[role="period"] {
+  color: #fc6764;
 }
 
-.gj-picker-md table tr td div, .gj-picker-md table tr th div{
-    color: #9092a5b7;  
+.gj-picker-md table tr td div,
+.gj-picker-md table tr th div {
+  color: #9092a5b7;
 }
-.gj-picker-md table tr th div{
-    color: #ccc;
+.gj-picker-md table tr th div {
+  color: #ccc;
 }
 
-.gj-picker-md table tr td.gj-cursor-pointer div:hover{
-    background: -webkit-linear-gradient(0deg, #ef5350 30%, #fc9842 100%);
-    color: #ccc;
-    font-weight: bold; 
+.gj-picker-md table tr td.gj-cursor-pointer div:hover {
+  background: -webkit-linear-gradient(0deg, #ef5350 30%, #fc9842 100%);
+  color: #ccc;
+  font-weight: bold;
 }
-.gj-picker-md table tr td.today div{
-    color: #4FF082;
-    font-weight: bold;
+.gj-picker-md table tr td.today div {
+  color: #4ff082;
+  font-weight: bold;
+}
+
+.contact-text-link {
+  color: #fff;
 }

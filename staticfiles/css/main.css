@@ -80,7 +80,10 @@
   backface-visibility: hidden;
   background-size: cover;
   /* background-color        : black; */
-  background-image: url(https://res.cloudinary.com/avilonproductioncdn/image/upload/v1569841170/avatar_image_wnnzl7.jpg);
+  background-image: url(
+    https://res.cloudinary.com/avilonproductioncdn/image/upload/f_auto,
+    q_auto/v1569841170/avatar_image_wnnzl7.jpg
+  );
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-color: #212121;

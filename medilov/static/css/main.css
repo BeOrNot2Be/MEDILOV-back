@@ -81,8 +81,7 @@
   background-size: cover;
   /* background-color        : black; */
   background-image: url(
-    https://res.cloudinary.com/avilonproductioncdn/image/upload/w_1000,
-    f_auto,
+    https://res.cloudinary.com/avilonproductioncdn/image/upload/f_auto,
     q_auto/v1569841170/avatar_image_wnnzl7.jpg
   );
   background-repeat: no-repeat;
