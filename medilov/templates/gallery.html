@@ -5,20 +5,31 @@
 <html>
 
 <head>
-	<title>Avilon | Gallery</title>
+	<meta charset="UTF-8" />
+	<title>Max Avilov | {{gallery.title}} gallery</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width = device-width, initial-scale = 1.0">
+	<meta name="description" content="Max is a award-winning photographer specializing in capturing lifestyle, wedding, babies' portraits paired with storytelling moments. Serving Portland, Seattle, Vancouver. Avilon Production is a company whom you can trust saving your memories of the best moments of your life like wedding, baby party, geaduation etc!" />
+	<meta name="keywords" content="photographer, wedding, family, baby, item photography, photographers near me, photographer near me, portland photographer, clark county photographer, vancouver photographer, photographer for real estate, photographer studio near me, portland family photographer, portland photographers instagram, portland photographer mini session, portland wedding photographer, portland photographer senior pictures, portland photographer rates, portland architectural photographer, portland advertising photographer, wedding photographer portland affordable, photographer agents portland, photography assistant portland, the photographers portland, portland photography business headshots" />
+	<meta name="author" content="BoOrNot2Be" />
+	<meta name="copyright"content="Avilonproduction">
+	<meta name="language" content="ES">
+	<meta name="Classification" content="Photo">
+	<meta name="owner" content="Max Acilov">
 
 	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta property="og:title" content="Max Avilov | {{gallery.title}} gallery" />
+	<meta property="og:image" content="{{gallery.gallery_logo}}" />
+	<meta property="og:url" content="https://www.avilonproduction.com{{request.get_full_path}}" />
+	<meta property="og:site_name" content="Avilon Production" />
+	<meta property="og:description" content="{{gallery.description}}" />
+	<meta property="og:type" content="website" />
+
+	<meta name="twitter:title" content="Max Avilov | {{gallery.title}} gallery" />
+	<meta name="twitter:image" content="{{gallery.gallery_logo}}" />
+	<meta name="twitter:url" content="https://www.avilonproduction.com{{request.get_full_path}}" />
+	<meta name="twitter:description" content="{{gallery.description}}" />
+	<meta name="twitter:card" content="summary_large_image" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="{% static "favicon.ico" %}">

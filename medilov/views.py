@@ -49,6 +49,7 @@ def GalleryView(request, gallery_id):
     context = {
         "photos": Gallery.objects.get(id=gallery_id).photos.all(),
         "videos": Gallery.objects.get(id=gallery_id).videos.all(),
+        "gallery": Gallery.objects.get(id=gallery_id)
         }
     return render(request, "gallery.html", context)
 

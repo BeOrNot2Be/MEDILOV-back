@@ -104,7 +104,8 @@ venv.bak/
 .mypy_cache/
 
 #small django builder
-start.sh
+run.sh
+private_vars.sh
 
 #during demployment "manage.py collectstatic" happens automatecly
 staticfiles/
