@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django_heroku
+import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -112,6 +113,12 @@ else:
     WEBSITEHOLDEREMAIL = "admin@avilonproduction.com"
     EMAIL_PORT = 465
 
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+            'ENGINE': 'djongo',
+            'NAME': 'medilov',
+    }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -152,7 +159,7 @@ STATICFILES_FINDERS = [
 
 
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False if 'test' in sys.argv else True
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 COMPRESS_OFFLINE_CONTEXT = {'base_template': "index.html"}
 COMPRESS_CSS_FILTERS = [

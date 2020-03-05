@@ -3,6 +3,7 @@ from django.http import Http404, HttpResponse
 from .models import Photo, Gallery, GalleryTopic, Service, AboutUnit
 from .forms import NameForm
 from .email import send_appoitment_registration
+import sys
 
 
 def ContactView(request):
@@ -23,12 +24,15 @@ def ContactView(request):
                 'email':form.cleaned_data['form_email']
             }
             context['email'] = email_data['email']
-            if send_appoitment_registration(email_data):
-                context['sent'] = True 
+            if 'test' in sys.argv:
                 return render(request, "contact.html", context)
             else:
-                context['sent'] = False
-                return render(request, "contact.html", context)
+                if send_appoitment_registration(email_data):
+                    context['sent'] = True 
+                    return render(request, "contact.html", context)
+                else:
+                    context['sent'] = False
+                    return render(request, "contact.html", context)
         else:
             print("not valid...")#DEVELOPMENT
     return render(request, "contact.html", context)
@@ -45,11 +49,11 @@ def GalleriesView(request):
     return render(request, "work.html", context)
 
 def GalleryView(request, gallery_id):
-    
+    gallery = Gallery.objects.get(id=gallery_id)
     context = {
-        "photos": Gallery.objects.get(id=gallery_id).photos.all(),
-        "videos": Gallery.objects.get(id=gallery_id).videos.all(),
-        "gallery": Gallery.objects.get(id=gallery_id)
+        "photos": gallery.photos.all(),
+        "videos": gallery.videos.all(),
+        "gallery": gallery
         }
     return render(request, "gallery.html", context)
 
