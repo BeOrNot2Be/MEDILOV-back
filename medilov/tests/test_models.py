@@ -48,7 +48,7 @@ class TestModels(TestCase):
             return s
         
     @staticmethod
-    def create_about_unit(title="", url="", short_description="", phrase="", parent="" ):
+    def create_about_unit(title="", url="", short_description="", phrase="", parent=None ):
         if title != "":
             if parent:
                 au = AboutUnit(title=title, url=url, short_description=short_description, phrase=phrase, parent=parent, color="#000000")

@@ -1,1 +1,3 @@
-medilov/static/* linguist-vendored
+*css linguist-language=Python
+*js linguist-language=Python
+*html linguist-language=Python
