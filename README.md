@@ -1,6 +1,6 @@
 <!-- @format -->
 
-# Avilon Production
+# Avilon Production ![Build][badge:github-actions]
 
 This Django webapp was made for photographer who was born to do art projects and I am truly happy that we created such a project.
 
@@ -31,4 +31,5 @@ Check it up here https://www.avilonproduction.com/ or simply run it yourself by 
 
 Made with ❤️ by [BeOrNot2Be][link:beornot2be]. I always happy to receive your feedback!
 
+[badge:github-actions]: https://github.com/BeOrNot2Be/MEDILOV-back/workflows/Build/badge.svg?branch=next
 [link:beornot2be]: https://github.com/BeOrNot2Be
