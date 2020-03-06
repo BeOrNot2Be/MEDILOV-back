@@ -38,7 +38,9 @@ class TestWorkPage(StaticLiveServerTestCase):
         self.g22 = self.create_gallery('2.2', '2.2 desc', imageUrl, self.gt2)
         self.g3 = self.create_gallery('3', '3 desc', imageUrl, self.gt3)
         
-        if os.path.exists("uitests/chromedriver"):
+        if os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
+            self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+        elif os.name == 'posix':
             self.broweser = webdriver.Chrome('uitests/chromedriver')
         else:
             self.broweser = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME)
