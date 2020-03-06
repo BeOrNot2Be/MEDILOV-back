@@ -23,7 +23,7 @@ class TestServicesPage(StaticLiveServerTestCase):
         self.s4 = self.create_service('4', "short desc 4", 'long desc 4', 'img alt', imageUrl)
 
         if os.path.exists("uitests/chromedriver.exe"):
-            self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+            self.broweser = webdriver.Chrome()
         else:
             self.broweser = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME)
         time.sleep(5) 
@@ -50,9 +50,9 @@ class TestServicesPage(StaticLiveServerTestCase):
         chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
         if os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
-            self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+            self.broweser = webdriver.Chrome()
         elif os.name == 'posix':
-            self.broweser = webdriver.Chrome('uitests/chromedriver')
+            self.broweser = webdriver.Chrome('chromedriver')
         else:
             driver = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME, options=chrome_options)
             

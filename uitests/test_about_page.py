@@ -24,9 +24,9 @@ class TestAboutPage(StaticLiveServerTestCase):
         self.au2 = self.create_about_unit('2', imageUrl, 'short desc 2', 'phrase 2', self.au1)
  
         if os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
-            self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+            self.broweser = webdriver.Chrome()
         elif os.name == 'posix':
-            self.broweser = webdriver.Chrome('uitests/chromedriver')
+            self.broweser = webdriver.Chrome('chromedriver')
         else:
             self.broweser = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME)
         time.sleep(5) 
