@@ -1,8 +1,10 @@
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from medilov.models import AboutUnit
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
 import time
+import os
 
 class TestAboutPage(StaticLiveServerTestCase):
     @staticmethod
@@ -21,7 +23,10 @@ class TestAboutPage(StaticLiveServerTestCase):
         self.au1 = self.create_about_unit('1', imageUrl, 'short desc 1', 'phrase 1')
         self.au2 = self.create_about_unit('2', imageUrl, 'short desc 2', 'phrase 2', self.au1)
  
-        self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+        if os.path.exists("uitests/chromedriver.exe"):
+            self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+        else:
+            self.broweser = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME)
         time.sleep(5) 
     
     def tearDown(self):

@@ -1,8 +1,10 @@
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from medilov.models import Service
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
 import time
+import os
 
 class TestServicesPage(StaticLiveServerTestCase):
     @staticmethod
@@ -20,7 +22,10 @@ class TestServicesPage(StaticLiveServerTestCase):
         self.s3 = self.create_service('3', "short desc 3", 'long desc 3', 'img alt', imageUrl)
         self.s4 = self.create_service('4', "short desc 4", 'long desc 4', 'img alt', imageUrl)
 
-        self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+        if os.path.exists("uitests/chromedriver.exe"):
+            self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+        else:
+            self.broweser = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME)
         time.sleep(5) 
     
     def test_services(self):
@@ -44,7 +49,11 @@ class TestServicesPage(StaticLiveServerTestCase):
         chrome_options = webdriver.ChromeOptions()        
         chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
-        driver = webdriver.Chrome('uitests/chromedriver.exe', chrome_options = chrome_options)
+        if os.path.exists("uitests/chromedriver.exe"):
+            driver = webdriver.Chrome('uitests/chromedriver.exe', chrome_options = chrome_options)
+        else:
+            driver = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME, options=chrome_options)
+            
         driver.get(self.live_server_url + reverse("services"))
 
         time.sleep(10)

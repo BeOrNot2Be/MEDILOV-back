@@ -1,8 +1,10 @@
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from medilov.models import Gallery, GalleryTopic
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
 import time
+import os
 
 class TestWorkPage(StaticLiveServerTestCase):
     @staticmethod
@@ -36,7 +38,11 @@ class TestWorkPage(StaticLiveServerTestCase):
         self.g22 = self.create_gallery('2.2', '2.2 desc', imageUrl, self.gt2)
         self.g3 = self.create_gallery('3', '3 desc', imageUrl, self.gt3)
         
-        self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+        if os.path.exists("uitests/chromedriver.exe"):
+            self.broweser = webdriver.Chrome('uitests/chromedriver.exe')
+        else:
+            self.broweser = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME)
+
         time.sleep(5) 
 
     def tearDown(self):
