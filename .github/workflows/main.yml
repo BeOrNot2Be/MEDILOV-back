@@ -29,6 +29,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Start MongoDB
+        uses: superchargejs/mongodb-github-action@1.1.0
+        with:
+          mongodb-version: 4.2
+
       - name: Test Urls, Forms, Models, Views
         env:
           DJANGO_DEBUG_FALSE: ${{ secrets.DJANGO_DEBUG_FALSE }}
