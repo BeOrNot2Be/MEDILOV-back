@@ -34,13 +34,7 @@ jobs:
         with:
           mongodb-version: 4.2
 
-      - name: Cache Statics
-        run: |
-          python manage.py collectstatic --noinput
-          python manage.py compress
-          python manage.py collectstatic --noinput
-
-      - name: Test Urls, Forms, Models, Views
+      - name: Set Env Vars
         env:
           DJANGO_DEBUG_FALSE: ${{ secrets.DJANGO_DEBUG_FALSE }}
           DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
@@ -55,6 +49,14 @@ jobs:
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+
+      - name: Cache Statics
+        run: |
+          python manage.py collectstatic --noinput
+          python manage.py compress
+          python manage.py collectstatic --noinput
+
+      - name: Test Urls, Forms, Models, Views
         run: python manage.py test medilov.tests
       # - name: Install ChromeDriver
       #   run: |
