@@ -22,6 +22,10 @@ jobs:
       SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
       SMTP_USER: ${{ secrets.SMTP_USER }}
       SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      REMOTEBROWESRDRIVER: ${{ secrets.REMOTEBROWESRDRIVER }}
+    services:
+      selenium:
+        image: selenium/standalone-chrome
 
     steps:
       - uses: actions/checkout@v2

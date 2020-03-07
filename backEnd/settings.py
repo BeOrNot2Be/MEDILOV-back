@@ -118,6 +118,7 @@ if 'test' in sys.argv:
             'ENGINE': 'djongo',
             'NAME': 'medilov',
     }
+    WEBDRIVER_PATH = os.environ.get('REMOTEBROWESRDRIVER', False)
 
 
 AUTH_PASSWORD_VALIDATORS = [

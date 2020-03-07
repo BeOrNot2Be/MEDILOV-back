@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from medilov.models import Service
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.conf import settings
 from django.urls import reverse
 import time
 import os
@@ -22,10 +23,15 @@ class TestServicesPage(StaticLiveServerTestCase):
         self.s3 = self.create_service('3', "short desc 3", 'long desc 3', 'img alt', imageUrl)
         self.s4 = self.create_service('4', "short desc 4", 'long desc 4', 'img alt', imageUrl)
 
-        if os.path.exists("uitests/chromedriver.exe"):
-            self.broweser = webdriver.Chrome()
+        if settings.WEBDRIVER_PATH:
+            desired_capabilities = DesiredCapabilities.CHROME.copy()
+            self.broweser = webdriver.Remote(settings.WEBDRIVER_PATH, desired_capabilities=desired_capabilities)
+        elif os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
+            self.broweser = webdriver.Chrome("uitests/chromedriver.exe")
+        elif os.name == 'posix':
+            self.broweser = webdriver.Chrome('chromedriver')
         else:
-            self.broweser = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME)
+            self.broweser = webdriver.Remote("http://testHost", desired_capabilities=DesiredCapabilities.CHROME)
         time.sleep(5) 
     
     def test_services(self):
@@ -49,10 +55,13 @@ class TestServicesPage(StaticLiveServerTestCase):
         chrome_options = webdriver.ChromeOptions()        
         chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
-        if os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
-            self.broweser = webdriver.Chrome()
+        if settings.WEBDRIVER_PATH:
+            desired_capabilities = DesiredCapabilities.CHROME.copy()
+            driver = webdriver.Remote(settings.WEBDRIVER_PATH, desired_capabilities=desired_capabilities, options=chrome_options)
+        elif os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
+            driver = webdriver.Chrome("uitests/chromedriver.exe", chrome_options=chrome_options)
         elif os.name == 'posix':
-            self.broweser = webdriver.Chrome('chromedriver')
+            driver = webdriver.Chrome('chromedriver', chrome_options=chrome_options)
         else:
             driver = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME, options=chrome_options)
             

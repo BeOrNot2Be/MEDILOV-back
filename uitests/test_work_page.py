@@ -3,6 +3,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from medilov.models import Gallery, GalleryTopic
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
+from django.conf import settings
 import time
 import os
 
@@ -38,12 +39,15 @@ class TestWorkPage(StaticLiveServerTestCase):
         self.g22 = self.create_gallery('2.2', '2.2 desc', imageUrl, self.gt2)
         self.g3 = self.create_gallery('3', '3 desc', imageUrl, self.gt3)
         
-        if os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
-            self.broweser = webdriver.Chrome()
+        if settings.WEBDRIVER_PATH:
+            desired_capabilities = DesiredCapabilities.CHROME.copy()
+            self.broweser = webdriver.Remote(settings.WEBDRIVER_PATH, desired_capabilities=desired_capabilities)
+        elif os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
+            self.broweser = webdriver.Chrome("uitests/chromedriver.exe")
         elif os.name == 'posix':
             self.broweser = webdriver.Chrome('chromedriver')
         else:
-            self.broweser = webdriver.Remote("http://testHost", DesiredCapabilities.CHROME)
+            self.broweser = webdriver.Remote("http://testHost", desired_capabilities=DesiredCapabilities.CHROME)
 
         time.sleep(5) 
 
@@ -64,7 +68,7 @@ class TestWorkPage(StaticLiveServerTestCase):
         self.assertEquals(UIStacks[0], UIStackSelected)
 
         SelectedStackName = UIStackSelected.find_element_by_class_name('stack-title').find_element_by_tag_name('span')
-        self.assertEquals(SelectedStackName.text, self.gt1.title)
+        self.assertEquals(SelectedStackName.get_attribute('innerText'), self.gt1.title)
         
         # check total number of galleries
         Galleries = self.broweser.find_elements_by_class_name('item')
