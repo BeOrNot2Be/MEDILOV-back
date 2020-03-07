@@ -35,7 +35,6 @@ pylint==2.4.4
 pymongo==3.9.0
 pyparsing==2.4.6
 pytest==5.3.5
-python-coveralls==2.9.3
 pytz==2019.2
 PyYAML==5.3
 rcssmin==1.0.6
