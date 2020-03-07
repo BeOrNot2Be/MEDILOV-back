@@ -4,11 +4,13 @@ attrs==19.3.0
 certifi==2019.6.16
 chardet==3.0.4
 colorama==0.4.3
+coverage==5.0.3
 dataclasses==0.6
 dj-database-url==0.5.0
 Django==2.2.5
 django-appconf==1.0.3
 django-compressor==2.3
+django-coverage-plugin==1.8.0
 django-feedparser==0.2.1
 django-heroku==0.3.1
 django-jet==1.0.8
