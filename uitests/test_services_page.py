@@ -24,8 +24,13 @@ class TestServicesPage(StaticLiveServerTestCase):
         self.s4 = self.create_service('4', "short desc 4", 'long desc 4', 'img alt', imageUrl)
 
         if settings.WEBDRIVER_PATH:
-            desired_capabilities = DesiredCapabilities.CHROME.copy()
-            self.broweser = webdriver.Remote(settings.WEBDRIVER_PATH, desired_capabilities=desired_capabilities)
+            options = webdriver.ChromeOptions()
+            options.add_argument('--headless')
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-gpu")
+            options.add_argument("--remote-debugin-port=9222")
+            options.add_argument("--screen-size=1200x800")
+            self.broweser = webdriver.Remote(settings.WEBDRIVER_PATH, desired_capabilities=options.to_capabilities())
         elif os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
             self.broweser = webdriver.Chrome("uitests/chromedriver.exe")
         elif os.name == 'posix':

@@ -26,8 +26,13 @@ class TestAboutPage(StaticLiveServerTestCase):
         self.au2 = self.create_about_unit('2', imageUrl, 'short desc 2', 'phrase 2', self.au1)
  
         if settings.WEBDRIVER_PATH:
-            desired_capabilities = DesiredCapabilities.CHROME.copy()
-            self.broweser = webdriver.Remote(settings.WEBDRIVER_PATH, desired_capabilities=desired_capabilities)
+            options = webdriver.ChromeOptions()
+            options.add_argument('--headless')
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-gpu")
+            options.add_argument("--remote-debugin-port=9222")
+            options.add_argument("--screen-size=1200x800")
+            self.broweser = webdriver.Remote(settings.WEBDRIVER_PATH, desired_capabilities=options.to_capabilities())
         elif os.path.exists("uitests/chromedriver.exe") and os.name == 'nt':
             self.broweser = webdriver.Chrome("uitests/chromedriver.exe")
         elif os.name == 'posix':
