@@ -23,6 +23,7 @@ jobs:
       SMTP_USER: ${{ secrets.SMTP_USER }}
       SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
       REMOTEBROWESRDRIVER: ${{ secrets.REMOTEBROWESRDRIVER }}
+      COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
     services:
       selenium:
@@ -67,8 +68,6 @@ jobs:
 
       - name: Coveralls
         run: coveralls
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment on PR
         uses: unsplash/comment-on-pr@master
