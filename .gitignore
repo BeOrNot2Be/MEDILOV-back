@@ -100,11 +100,14 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# binaries
+*.exe
+
 # mypy
 .mypy_cache/
 
-#small django builder
-start.sh
+#small django private vars executer
+private_vars.sh
 
 #during demployment "manage.py collectstatic" happens automatecly
 staticfiles/

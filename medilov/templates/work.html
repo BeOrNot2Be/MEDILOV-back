@@ -38,7 +38,15 @@
                             <div class="item">
                                 <div class="item__content">
                                     <a href="/gallery/{{gallery.id}}">
-                                        <img src="{{gallery.gallery_logo}}" alt="{{ gallery.title }}" />
+                                        <img src='{{gallery.gallery_logo|slice:":60"}}w_700,f_auto,q_auto:good{{gallery.gallery_logo|slice:"59:"}}' sizes="(max-width: 1200px) 50vw,
+                                            (max-width: 480px) 50vw,
+                                            33vw" srcset='{{gallery.gallery_logo|slice:":60"}}w_200,f_auto,q_auto:good{{gallery.gallery_logo|slice:"59:"}} 200w,
+                                            {{gallery.gallery_logo|slice:":60"}}w_300,f_auto,q_auto:good{{gallery.gallery_logo|slice:"59:"}} 300w,
+                                            {{gallery.gallery_logo|slice:":60"}}w_400,f_auto,q_auto:good{{gallery.gallery_logo|slice:"59:"}} 400w,
+                                            {{gallery.gallery_logo|slice:":60"}}w_500,f_auto,q_auto:good{{gallery.gallery_logo|slice:"59:"}} 500w,
+                                            {{gallery.gallery_logo|slice:":60"}}w_600,f_auto,q_auto:good{{gallery.gallery_logo|slice:"59:"}} 600w,
+                                            {{gallery.gallery_logo|slice:":60"}}w_700,f_auto,q_auto:good{{gallery.gallery_logo|slice:"59:"}} 700w,
+                                            {{gallery.gallery_logo|slice:":60"}}w_800,f_auto,q_auto:good{{gallery.gallery_logo|slice:"59:"}} 800w' alt="{{gallery.title}}" class="img-responsive">
                                     </a>
                                     <h3 class="item__title">{{ gallery.title }}<span class="item__date">{{ gallery.date|date:"M d, Y" }}</span></h3>
                                     <div class="item__details">
@@ -60,7 +68,7 @@
 {% block script_injection_lower_block %}
 	{% compress js %}
 	<script src="{% static "js/flickity.pkgd.min.js" %}"></script>
-    <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/work.js" %}"></script>
     <script src="{% static "js/smoothscroll.js" %}"></script>
     {% endcompress %}
 {% endblock %}

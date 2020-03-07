@@ -3,31 +3,33 @@
 
 <!DOCTYPE HTML>
 <html>
-<<<<<<< HEAD
 
 <head>
+	<meta charset="UTF-8" />
+	<title>Max Avilov | {{gallery.title}} gallery</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0">
+	<meta name="description" content="Max is a award-winning photographer specializing in capturing lifestyle, wedding, babies' portraits paired with storytelling moments. Serving Portland, Seattle, Vancouver. Avilon Production is a company whom you can trust saving your memories of the best moments of your life like wedding, baby party, geaduation etc!" />
+	<meta name="keywords" content="photographer, wedding, family, baby, item photography, photographers near me, photographer near me, portland photographer, clark county photographer, vancouver photographer, photographer for real estate, photographer studio near me, portland family photographer, portland photographers instagram, portland photographer mini session, portland wedding photographer, portland photographer senior pictures, portland photographer rates, portland architectural photographer, portland advertising photographer, wedding photographer portland affordable, photographer agents portland, photography assistant portland, the photographers portland, portland photography business headshots" />
+	<meta name="author" content="BoOrNot2Be" />
+	<meta name="copyright"content="Avilonproduction">
+	<meta name="language" content="ES">
+	<meta name="Classification" content="Photo">
+	<meta name="owner" content="Max Acilov">
 
 	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-=======
-	<head>
-	<title>Avilon | Gallery</title>
+	<meta property="og:title" content="Max Avilov | {{gallery.title}} gallery" />
+	<meta property="og:image" content="{{gallery.gallery_logo}}" />
+	<meta property="og:url" content="https://www.avilonproduction.com{{request.get_full_path}}" />
+	<meta property="og:site_name" content="Avilon Production" />
+	<meta property="og:description" content="{{gallery.description}}" />
+	<meta property="og:type" content="website" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
->>>>>>> 73e513070b5c6bfc22d1dd4e64951a1d7d512c01
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta name="twitter:title" content="Max Avilov | {{gallery.title}} gallery" />
+	<meta name="twitter:image" content="{{gallery.gallery_logo}}" />
+	<meta name="twitter:url" content="https://www.avilonproduction.com{{request.get_full_path}}" />
+	<meta name="twitter:description" content="{{gallery.description}}" />
+	<meta name="twitter:card" content="summary_large_image" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="{% static "favicon.ico" %}">
@@ -40,7 +42,6 @@
 	<meta name="theme-color" content="#ffffff">
 
 	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD
 	<!-- <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet"> -->
 
 	<!-- Animate.css -->
@@ -50,17 +51,10 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="{% static "css/style.css" %}">
-=======
-	
-	{% compress css %}
-		<link rel="stylesheet" href="{% static "css/animate.css" %}">
-		<link rel="stylesheet" href="{% static "css/icomoon.css" %}">
-		<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-		<link rel="stylesheet" href="{% static "css/style.css" %}">
-		<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
-	{% endcompress %}
->>>>>>> 73e513070b5c6bfc22d1dd4e64951a1d7d512c01
+	<link rel="stylesheet" href="{% static "css/gallery_base.css" %}">
+	<!-- Popup style -->
+	<link rel="stylesheet" href="{% static "css/magnific-popup.css" %}">
+
 
 	{% compress js %}
 		<script src="{% static "js/modernizr-2.6.2.min.js" %}"></script>
@@ -69,6 +63,15 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159639419-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-159639419-1');
+	</script>
 
 </head>
 
@@ -117,7 +120,7 @@
 					{% endfor %}
 					{% for img in photos|slice:":10" %}
 					<div class="grid-item item" data-animate-effect="fadeIn">
-						<a href="{{img.url|slice:":60"}}w_0.8{{img.url|slice:"59:"}}" class="image-popup"
+						<a href="{{img.url|slice:":60"}}w_1000,f_auto,q_auto{{img.url|slice:"59:"}}" class="image-popup"
 							title="{{img.title}}">
 							<div class="img-wrap">
 								<img src='{{img.url|slice:":60"}}w_400,f_auto,q_auto:good{{img.url|slice:"59:"}}' sizes="(max-width: 480px) 50vw,
@@ -144,7 +147,6 @@
 		</div>
 	</div>
 
-<<<<<<< HEAD
 	<!-- jQuery -->
 	<script src="{% static "js/jquery.min.js" %}"></script>
 	<!-- jQuery Easing -->
@@ -156,7 +158,8 @@
 
 	<!-- Magnific -->
 	<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
-	{% comment %} <script src="{% static "js/magnific-popup-options.js" %}"></script> {% endcomment %}
+	<script src="{% static "js/magnific-popup-options.js" %}"></script>
+
 	<!-- Isotope & imagesLoaded -->
 	<script src="{% static "js/isotope.pkgd.min.js" %}"></script>
 	<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
@@ -165,24 +168,22 @@
 	<script src="{% static "js/CSSPlugin.min.js" %}"></script>
 	<script src="{% static "js/EasePack.min.js" %}"></script>
 
-	<!-- MAIN JS -->
-	{% comment %} <script src="{% static "js/mainSingle.js" %}"></script> {% endcomment %}
-
 	<script>
 
 	var magnifPopup = function() {
 		$('.image-popup').magnificPopup({
 			autoFocusLast: 'false',
 			type: 'image',
-			mainClass: 'mfp-with-zoom',
+			closeOnContentClick: true,
+			closeBtnInside: false,
+			fixedContentPos: true,
+			image: {
+				verticalFit: true
+			},
+			mainClass: 'mfp-no-margins mfp-img-mobile',
 			gallery: {
 				enabled: true
 			},
-			zoom: {
-				enabled: true,
-				duration: 500,
-				easing: 'ease-in-out',
-			}
 		});
 	};
 
@@ -308,7 +309,7 @@
 		function fetchImgs (startIndex, endIndex) {
 			for (const img of images.slice(startIndex,endIndex)) {
 			elemImgs.push($(`<div class="grid-item item" data-animate-effect="fadeIn">
-						<a href="${img.url1}w_0.8${img.url2}" class="image-popup"
+						<a href="${img.url1}w_1000,f_auto,q_auto${img.url2}" class="image-popup"
 							title="${img.name}">
 							<div class="img-wrap">
 								<img src='${img.url1}w_400,f_auto,q_auto:good${img.url2}' sizes="(max-width: 992px) 50vw,
@@ -374,24 +375,7 @@
 
 		$(window).scroll(addPhotoesOnScroll);
 
-=======
-	</div>
 
-	{% compress js %}
-		<script src="{% static "js/jquery.min.js" %}"></script>
-		<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
-		<script src="{% static "js/bootstrap.min.js" %}"></script>
-		<script src="{% static "js/jquery.waypoints.min.js" %}"></script>
-		<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
-		<script src="{% static "js/magnific-popup-options.js" %}"></script>
-		<script src="{% static "js/isotope.pkgd.min.js" %}"></script>
-		<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
-		<script src="{% static "js/TweenLite.min.js" %}"></script>
-		<script src="{% static "js/CSSPlugin.min.js" %}"></script>
-		<script src="{% static "js/EasePack.min.js" %}"></script>
-		<script src="{% static "js/mainSingle.js" %}"></script>
-	{% endcompress %}
->>>>>>> 73e513070b5c6bfc22d1dd4e64951a1d7d512c01
 
 	</script>
 </body>

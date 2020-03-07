@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import django_heroku
+import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,7 +29,18 @@ INSTALLED_APPS = [
     'jet.dashboard',
     'jet',
     'django.contrib.admin',
+    'django_user_agents',
 ]
+
+USER_AGENTS_CACHE = 'default'
+
+
+ACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
 
 JET_DEFAULT_THEME = 'default'
 
@@ -41,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'backEnd.urls'
@@ -72,7 +85,7 @@ EMAIL_USE_SSL = True
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 
 if 'DJANGO_DEBUG_FALSE' in os.environ:  
-    DEBUG = False
+    DEBUG = True
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  
     ALLOWED_HOSTS = [os.environ["SITENAME"]]
     DATABASES = {
@@ -99,6 +112,13 @@ else:
     }
     WEBSITEHOLDEREMAIL = "admin@avilonproduction.com"
     EMAIL_PORT = 465
+
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+            'ENGINE': 'djongo',
+            'NAME': 'medilov',
+    }
+    WEBDRIVER_PATH = os.environ.get('REMOTEBROWESRDRIVER', False)
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -140,7 +160,7 @@ STATICFILES_FINDERS = [
 
 
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False if 'test' in sys.argv else True
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 COMPRESS_OFFLINE_CONTEXT = {'base_template': "index.html"}
 COMPRESS_CSS_FILTERS = [
