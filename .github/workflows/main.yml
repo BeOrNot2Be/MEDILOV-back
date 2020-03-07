@@ -23,6 +23,7 @@ jobs:
       SMTP_USER: ${{ secrets.SMTP_USER }}
       SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
       REMOTEBROWESRDRIVER: ${{ secrets.REMOTEBROWESRDRIVER }}
+
     services:
       selenium:
         image: selenium/standalone-chrome
@@ -58,16 +59,16 @@ jobs:
           python manage.py compress
           python manage.py collectstatic --noinput
 
-      - name: Test Urls, Forms, Models, Views
-        run: python manage.py test medilov.tests
+      - name: Coverage test Urls, Forms, Models, Views
+        run: coverage run --source=medilov manage.py test medilov.tests
 
       # - name: Test UI
       #   run: python manage.py test uitests
 
       - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        run: coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Comment on PR
         uses: unsplash/comment-on-pr@master
