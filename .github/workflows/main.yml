@@ -64,9 +64,6 @@ jobs:
       # - name: Test UI
       #   run: python manage.py test uitests
 
-      - name: make test-coverage
-        run: make test-coverage
-
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
