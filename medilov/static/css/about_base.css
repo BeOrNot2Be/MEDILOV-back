@@ -406,6 +406,10 @@ a:focus {
   .content__item--wide .content__item-description {
     padding: 1rem;
   }
+
+  .content__item-decobar {
+    display: none;
+  }
 }
 
 .content__item:nth-child(even) .content__item-description {
