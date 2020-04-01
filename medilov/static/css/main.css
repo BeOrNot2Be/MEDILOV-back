@@ -411,7 +411,7 @@
 .move-items .is-selected .stack-title a span {
   opacity: 0;
   -webkit-transform: translate3d(0, -150%, 0);
-  transform: translate3d(0, -15 0%, 0);
+  transform: translate3d(0, -150%, 0);
 }
 
 .item {
@@ -700,6 +700,10 @@
 }
 
 @media screen and (max-width: 45em) {
+  .hero__back--mover {
+    display: none;
+  }
+
   .stack-title {
     font-size: 1.75em;
   }

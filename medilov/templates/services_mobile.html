@@ -9,69 +9,73 @@
 {% endblock %}
 
 {% block style_injection_block %}
-	{% compress css %}
-		<link rel="stylesheet" type="text/css" href="{% static "css/mobile_services_base.css" %}" />
-        <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
-    {% endcompress %}
+{% compress css %}
+<link rel="stylesheet" type="text/css" href="{% static "css/mobile_services_base.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+{% endcompress %}
 {% endblock %}
 
 {% block body %}
 
-    <body class="loading">
-		<svg class="hidden">
-			<symbol id="icon-caret" viewBox="0 0 24 13">
-				<title>caret</title>
-				<path d="M23.646.328a.842.842 0 0 0-1.19 0l-10.459 10.48L1.517.328a.842.842 0 0 0-1.189 1.19L11.382 12.57c.164.164.369.246.595.246.205 0 .43-.082.594-.246L23.625 1.518a.824.824 0 0 0 .02-1.19z"/>
-			</symbol>
-		</svg>
-		<main>
-            {% header "services" %}
-			<div class="frame">
-				<header class="codrops-header">
-				</header>
+<body class="loading">
+	<svg class="hidden">
+		<symbol id="icon-caret" viewBox="0 0 24 13">
+			<title>caret</title>
+			<path
+				d="M23.646.328a.842.842 0 0 0-1.19 0l-10.459 10.48L1.517.328a.842.842 0 0 0-1.189 1.19L11.382 12.57c.164.164.369.246.595.246.205 0 .43-.082.594-.246L23.625 1.518a.824.824 0 0 0 .02-1.19z" />
+		</symbol>
+	</svg>
+	<main>
+		{% header "services" %}
+		<div class="frame">
+			<header class="codrops-header">
+			</header>
+		</div>
+		<div class="slideshow">
+			{% for service in services %}
+			<div class="slide">
+				<div class="preview">
+					<div class="preview__img-wrap">
+						<div class="preview__img"
+							style="background-image: url({{service.url|slice:":60"}}w_1000,f_auto,q_auto:good,e_brightness_hsb:-40{{service.url|slice:"59:"}});">
+						</div>
+						<div class="preview__img-reveal"></div>
+					</div>
+					<h3 class="preview__title">{{ service.short_description }}</h3>
+					<div class="preview__content">
+						<p>{{ service.long_description }}</p>
+					</div>
+				</div>
+				<div class="slide__img-wrap">
+					<div class="slide__img"
+						style="background-image: url({{service.url|slice:":60"}}w_1000,f_auto,q_auto:good{{service.url|slice:"59:"}});">
+					</div>
+					<div class="slide__img-reveal"></div>
+				</div>
+				<span class="slide__number">#{{ forloop.counter }}</span>
+				<h3 class="slide__title">{{ service.title }}</h3>
 			</div>
-			<div class="slideshow">
-                {% for service in services %}				
-                    <div class="slide">
-                        <div class="preview">
-                            <div class="preview__img-wrap">
-                                <div class="preview__img" style="background-image: url({{service.url|slice:":60"}}w_1000,f_auto,q_auto:good,e_brightness_hsb:-40{{service.url|slice:"59:"}});"></div>
-                                <div class="preview__img-reveal"></div>
-                            </div>
-                            <h3 class="preview__title">{{ service.short_description }}</h3>
-                            <div class="preview__content">
-                                <p>{{ service.long_description }}</p>
-                            </div>
-                        </div>
-                        <div class="slide__img-wrap">
-                            <div class="slide__img" style="background-image: url({{service.url|slice:":60"}}w_1000,f_auto,q_auto:good{{service.url|slice:"59:"}});"></div>
-                            <div class="slide__img-reveal"></div>
-                        </div>
-                        <span class="slide__number">#{{ forloop.counter }}</span>
-                        <h3 class="slide__title">{{ service.title }}</h3>
-                    </div>
-                {% endfor %}
-				<nav class="slidenav">
-					<button class="slidenav__item slidenav__item--prev">Previous</button>
-					<button class="slidenav__item slidenav__item--next">Next</button>
-					<button class="slidenav__preview">
-						<svg class="icon icon--caret">
-							<use xlink:href="#icon-caret"></use>
-						</svg>
-					</button>
-				</nav>
-			</div>
-		</main>
-	</body>
+			{% endfor %}
+			<nav class="slidenav">
+				<button class="slidenav__item slidenav__item--prev" type="button">Previous</button>
+				<button class="slidenav__item slidenav__item--next" type="button">Next</button>
+				<button class="slidenav__preview">
+					<svg class="icon icon--caret">
+						<use xlink:href="#icon-caret"></use>
+					</svg>
+				</button>
+			</nav>
+		</div>
+	</main>
+</body>
 
 {% endblock %}
 
 
 {% block script_injection_lower_block %}
-    {% compress js %}
-	<script src="{% static "js/TweenMax.min.js" %}"></script>
-	<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
-	<script src="{% static "js/mobile_services.js" %}"></script>
-	{% endcompress %}
-{% endblock %}  
-
+{% compress js %}
+<script src="{% static "js/TweenMax.min.js" %}"></script>
+<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
+<script src="{% static "js/mobile_services.js" %}"></script>
+{% endcompress %}
+{% endblock %}

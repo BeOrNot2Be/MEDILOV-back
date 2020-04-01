@@ -10,52 +10,61 @@
 {% endblock %}
 
 {% block style_injection_block %}
-	{% compress css %}
-	<link rel="stylesheet" type="text/css" href="{% static "css/dec4mzz.css" %}" />
-	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
-	<link rel="stylesheet" type="text/css" href="{% static "css/about_base.css" %}" />
-	{% endcompress %}
+{% compress css %}
+<link rel="stylesheet" type="text/css" href="{% static "css/dec4mzz.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "css/about_base.css" %}" />
+{% endcompress %}
+{% endblock %}
+
+{% block script_injection_upper_block %}
+<script>
+	document.documentElement.className = "js";
+	var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e };
+	supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+</script>
 {% endblock %}
 
 {% block body %}
-	<body class="demo-6 loading">
-		{% header "about" %}
-		<main>
-			<div data-scroll class="page page--layout-2">
-				<div class="content content--alternate">
-					{% for unit in units %}
-						<div class="content__item">
-							<div class="content__item-imgwrap">
-								<div class="content__item-img" style="background-image: url({{unit.url|slice:":60"}}w_1000,f_auto,q_auto:good{{unit.url|slice:"59:"}});"></div>
-							</div>
-							<h2 class="content__item-title">{{unit.phrase}}</h2>
-							<p class="content__item-description">{{unit.short_description}}</p>
-							<div class="content__item-decobar"></div>
-							<input type="hidden" class="content__item-color" value="{{unit.color}}" />
+
+<body class="demo-6 loading">
+	{% header "about" %}
+	<main>
+		<div data-scroll class="page page--layout-2">
+			<div class="content content--alternate">
+				{% for unit in units %}
+				<div class="content__item">
+					<div class="content__item-imgwrap">
+						<div class="content__item-img"
+							style="background-image: url({{unit.url|slice:":60"}}w_1000,f_auto,q_auto:good{{unit.url|slice:"59:"}});">
 						</div>
-					{% endfor %}
+					</div>
+					<h2 class="content__item-title">{{unit.phrase}}</h2>
+					<p class="content__item-description">{{unit.short_description}}</p>
+					<div class="content__item-decobar"></div>
+					<input type="hidden" class="content__item-color" value="{{unit.color}}" />
 				</div>
-				<footer class="contact-us-footer">
-					<h2>This is tittle</h2>
-					<span class="contact-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae numquam iure aspernatur tenetur dolorem alias deserunt, maiores molestiae laborum harum beatae atque magni error, rem sit aliquam ducimus excepturi dignissimos.</span>
-					<button class="contact-button" onclick="location.href='../contacts';">
-						<div class="circle">
-							<span class="icon arrow"></span>
-						</div>
-						<p class="button-text">Contact us</p>
-					</button>
-					<div style="height:100px;" ></div>
-				</footer>
+				{% endfor %}
 			</div>
-		</main>
-		
-	</body>
+			<footer class="contact-us-footer">
+				<button class="contact-button" onclick="location.href='../contacts';">
+					<div class="circle">
+						<span class="icon arrow"></span>
+					</div>
+					<p class="button-text">Contact us</p>
+				</button>
+				<div style="height:100px;"></div>
+			</footer>
+		</div>
+	</main>
+
+</body>
 {% endblock %}
 
 {% block script_injection_lower_block %}
-	{% compress js %}
-		<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
-		<script src="{% static "js/TweenMax.min.js" %}"></script>
-		<script src="{% static "js/about.js" %}"></script>
-	{% endcompress %}
+{% compress js %}
+<script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
+<script src="{% static "js/TweenMax.min.js" %}"></script>
+<script src="{% static "js/about.js" %}"></script>
+{% endcompress %}
 {% endblock %}
