@@ -15,6 +15,14 @@
 {% endcompress %}
 {% endblock %}
 
+{% block script_injection_upper_block %}
+<script>
+	document.documentElement.className = "js";
+	var supportsCssVars = function () { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e };
+	supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+</script>
+{% endblock %}
+
 {% block body %}
 
 <body class="loading">
@@ -57,8 +65,8 @@
 			</div>
 			{% endfor %}
 			<nav class="slidenav">
-				<button class="slidenav__item slidenav__item--prev" type="button">Previous</button>
-				<button class="slidenav__item slidenav__item--next" type="button">Next</button>
+				<span class="slidenav__item slidenav__item--prev">Previous</span>
+				<span class="slidenav__item slidenav__item--next">Next</span>
 				<button class="slidenav__preview">
 					<svg class="icon icon--caret">
 						<use xlink:href="#icon-caret"></use>

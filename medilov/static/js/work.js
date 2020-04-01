@@ -189,14 +189,15 @@
                   // if the user scrolled down, let's first scroll all up before closing the stack.
                   var scrolled = scrollY();
                   if (scrolled > 0) {
-                    smooth_scroll_to(
-                      isFirefox ? docElem : bodyEl || docElem,
-                      0,
-                      500
-                    ).then(function() {
-                      closeStack();
-                      stack.addEventListener("click", toggler);
-                    });
+                    // smooth_scroll_to(
+                    //   isFirefox ? docElem : bodyEl || docElem,
+                    //   0,
+                    //   500
+                    // ).then(function() {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    closeStack();
+                    stack.addEventListener("click", toggler);
+                    // });
                   } else {
                     closeStack();
                     stack.addEventListener("click", toggler);
@@ -235,14 +236,15 @@
                   // if the user scrolled down, let's first scroll all up before closing the stack.
                   var scrolled = scrollY();
                   if (scrolled > 0) {
-                    smooth_scroll_to(
-                      isFirefox ? docElem : bodyEl || docElem,
-                      0,
-                      500
-                    ).then(function() {
-                      closeStack();
-                      stack.addEventListener("click", toggler);
-                    });
+                    // smooth_scroll_to(
+                    //   isFirefox ? docElem : bodyEl || docElem,
+                    //   0,
+                    //   500
+                    // ).then(function() {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    closeStack();
+                    stack.addEventListener("click", toggler);
+                    // });
                   } else {
                     closeStack();
                     stack.addEventListener("click", toggler);
