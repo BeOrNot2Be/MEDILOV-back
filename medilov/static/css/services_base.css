@@ -506,7 +506,7 @@ a:focus {
 }
 
 .content {
-  position: fixed;
+  /* position: fixed; */
   top: 10rem;
   left: 0;
   width: 100%;

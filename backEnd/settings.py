@@ -76,7 +76,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backEnd.wsgi.application'
 
-#email 
+# email
+
 EMAIL_HOST = os.environ['SMTP_SERVER']
 EMAIL_HOST_USER = os.environ['SMTP_USER']
 EMAIL_HOST_PASSWORD = os.environ['SMTP_PASSWORD']
@@ -84,9 +85,9 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 
-if 'DJANGO_DEBUG_FALSE' in os.environ:  
+if 'DJANGO_DEBUG_FALSE' in os.environ:
     DEBUG = True
-    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']  
+    SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
     ALLOWED_HOSTS = [os.environ["SITENAME"]]
     DATABASES = {
         'default': {
@@ -99,9 +100,9 @@ if 'DJANGO_DEBUG_FALSE' in os.environ:
     }
     WEBSITEHOLDEREMAIL = os.environ['WHEMAIL']
     EMAIL_PORT = os.environ['SMTP_PORT']
-    
+
 else:
-    DEBUG = False  
+    DEBUG = False
     SECRET_KEY = 'ctwj8_&w$vkw2ce&w+$c%8z$m6hpe4f8f8y^#h&_rt_o7na23u'
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '*']
     DATABASES = {
@@ -115,8 +116,8 @@ else:
 
 if 'test' in sys.argv:
     DATABASES['default'] = {
-            'ENGINE': 'djongo',
-            'NAME': 'medilov',
+        'ENGINE': 'djongo',
+        'NAME': 'medilov',
     }
     WEBDRIVER_PATH = os.environ.get('REMOTEBROWESRDRIVER', False)
 
@@ -180,8 +181,8 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
+            'format': "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
         },
         'simple': {
             'format': '%(levelname)s %(message)s'
@@ -192,7 +193,7 @@ LOGGING = {
             'level': 'ERROR',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
-        }   
+        }
     },
     'loggers': {
         'django': {

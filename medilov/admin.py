@@ -2,13 +2,15 @@ from django.contrib import admin
 from .models import Photo, Gallery, GalleryTopic, AboutUnit, Service, Video
 from .forms import AboutUnitForm
 
+
 class AboutUnitAdmin(admin.ModelAdmin):
     form = AboutUnitForm
     fieldsets = (
         (None, {
-            'fields': ('title', 'short_description', 'phrase','url', 'color', 'parent')
-            }),
-        )
+            'fields': ('title', 'short_description', 'phrase', 'url', 'color', 'parent')
+        }),
+    )
+
 
 admin.site.register(AboutUnit, AboutUnitAdmin)
 admin.site.register(Photo)

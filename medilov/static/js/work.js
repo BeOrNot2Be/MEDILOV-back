@@ -1,15 +1,4 @@
-/**
- * main.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2015, Codrops
- * http://www.codrops.com
- *
- * @format
- */
+/** @format */
 
 (function() {
   var bodyEl = document.body,
@@ -109,35 +98,6 @@
           // current stack
           if (classie.has(bodyEl, "view-full")) {
             // stack is opened
-            /*var closeStack = function() {
-                        	classie.remove(bodyEl, 'move-items');
-                        	setTimeout(function() { 
-                        		classie.remove(mainHeader, 'cordrop-header-background');
-                        		stackHeader.innerHTML = '';
-                        		titleEl.style.display = 'inline-block'
-                        	}, 250);
-                        	console.log(stack)
-                        	stackHeader.style.opacity = '0';
-                        	stackHeader.style.transition = "opacity 0.25s linear 0s";
-                        	onEndTransition(slider, function() {
-                        		classie.remove(bodyEl, 'view-full');
-                        		bodyEl.style.height = '';
-                        		flkty.bindDrag();
-                        		flkty.options.accessibility = true;
-                        		canMoveHeroImage = true;
-                        	});
-                        };
-
-                        // if the user scrolled down, let's first scroll all up before closing the stack.
-                        var scrolled = scrollY();
-                        if( scrolled > 0 ) {
-                        	smooth_scroll_to(isFirefox ? docElem : bodyEl || docElem, 0, 500).then(function() {
-                        		closeStack();
-                        	});
-                        }
-                        else {
-                        	closeStack();
-                        }*/
           } else if (canOpen) {
             // stack is closed
             stack.removeEventListener("click", toggler);
