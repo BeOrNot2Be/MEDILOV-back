@@ -118,7 +118,7 @@
 						</a>
 					</div>
 					{% endfor %}
-					{% for img in photos|slice:":10" %}
+					{% for img in initialPhotos %}
 					<div class="grid-item item" data-animate-effect="fadeIn">
 						<a href="{{img.url|slice:":60"}}w_1000,f_auto,q_auto{{img.url|slice:"59:"}}" class="image-popup"
 							title="{{img.title}}">
@@ -141,7 +141,7 @@
 							</div>
 						</a>
 					</div>
-					{% endfor %}
+					{% endfor %} 
 				</div>
 			</div>
 		</div>
@@ -295,8 +295,8 @@
 		magnifVideo();
 	});
 
-		const images = [
-			{% for photo in photos|slice:"9:" %}
+		const allImages = [
+			{% for photo in photos %}
 				{
 					name: '{{photo.title}}',
 					url1: '{{photo.url|slice:":60"}}',
@@ -304,6 +304,8 @@
 				},
 			{% endfor %}
 		]
+		
+		const images = allImages.slice(10);
 
 		let elemImgs = [];
 		function fetchImgs (startIndex, endIndex) {
@@ -333,6 +335,7 @@
 			}
 		}
 		fetchImgs(0, 20);
+
 
 		var imageIndexStart = 0,
 			imageIndexEnd = 10,
