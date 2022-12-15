@@ -1,3 +1,6 @@
+> Abandoned this project; stopped all maintenance as of April, 2020
+
+
 <!-- @format -->
 
 # Avilon Production ![Build][badge:github-actions] [![Known Vulnerabilities][badge:repo-vulnerabilities]][link:repo-vulnerabilities] [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![HitCount][badge:hit]][link:hit] [![Maintainability][badge:maintainability]][link:maintainability] ![made-with-django](https://static.djangoproject.com/img/badges/djangomade124x25.gif) [![Coverage Status][badge:coverage]][link:coverage]
